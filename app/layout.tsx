@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fraunces, Inter } from "next/font/google";
 import { getCookbook } from "@/lib/parse";
 import { Inline } from "@/components/Inline";
+import { ListNavLink } from "@/components/ListNavLink";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -34,12 +35,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               Chicken Prep
             </Link>
             <div className="flex items-center gap-1 text-sm font-medium">
-              <Link href="/#recipes" className="rounded-full px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink">
+              <Link
+                href="/#recipes"
+                className="hidden rounded-full px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink sm:block"
+              >
                 Recipes
               </Link>
               <Link href="/seasonings" className="rounded-full px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink">
                 Seasonings
               </Link>
+              <ListNavLink />
             </div>
           </nav>
         </header>

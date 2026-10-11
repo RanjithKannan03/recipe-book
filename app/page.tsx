@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCookbook } from "@/lib/parse";
 import { CookPill } from "@/components/ui";
+import { CardAddButton } from "@/components/CardAddButton";
 
 export default function Home() {
   const { recipes, blends } = getCookbook();
@@ -54,10 +55,10 @@ export default function Home() {
 
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {recipes.map((r) => (
-            <li key={r.slug}>
+            <li key={r.slug} className="relative">
               <Link
                 href={`/recipes/${r.slug}`}
-                className="group flex h-full flex-col rounded-3xl border border-line bg-surface p-5 shadow-card transition hover:-translate-y-0.5 hover:border-accent sm:p-6"
+                className="group flex h-full flex-col rounded-3xl border border-line bg-surface p-5 shadow-card transition hover:border-accent sm:p-6"
               >
                 <div className="flex items-start justify-between gap-3">
                   <span className="font-display text-4xl font-semibold leading-none text-accent/90 tabular-nums">
@@ -71,13 +72,14 @@ export default function Home() {
                 <p className="mt-1.5 text-sm text-muted">
                   {r.tagline ?? r.groups.map((g) => g.title).filter((t) => !/^chicken$/i.test(t)).join(" · ")}
                 </p>
-                <div className="mt-auto flex items-center justify-between gap-3 pt-5">
-                  {r.airFryer ? <CookPill air={r.airFryer} /> : <span />}
-                  <span aria-hidden className="text-accent transition group-hover:translate-x-1">
-                    →
-                  </span>
+                <div className="mt-auto flex min-h-11 items-center pt-5 pr-24">
+                  {r.airFryer && <CookPill air={r.airFryer} />}
                 </div>
               </Link>
+              {/* Outside the link so it doesn't navigate; sits over the card's bottom-right corner */}
+              <div className="absolute right-5 bottom-5 sm:right-6 sm:bottom-6">
+                <CardAddButton slug={r.slug} baseGrams={r.baseGrams} title={r.title} />
+              </div>
             </li>
           ))}
         </ul>

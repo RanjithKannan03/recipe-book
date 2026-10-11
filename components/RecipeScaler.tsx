@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Recipe } from "@/lib/parse";
 import { formatFactor, scaleIngredient } from "@/lib/scale";
+import { AddToListButton } from "./AddToListButton";
 import { GramsControl } from "./GramsControl";
 import { IngredientList } from "./IngredientList";
 import { Inline } from "./Inline";
@@ -49,7 +50,13 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
       <div className="mt-6 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
         <aside className="lg:sticky lg:top-6 lg:max-h-[calc(100dvh-3rem)] lg:self-start lg:overflow-y-auto lg:rounded-3xl">
           <div className="rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
-            <div className="mb-6 hidden border-b border-line pb-6 lg:block">{control(false)}</div>
+            <div className="mb-6 hidden space-y-4 border-b border-line pb-6 lg:block">
+              {control(false)}
+              <AddToListButton slug={recipe.slug} grams={grams} />
+            </div>
+            <div className="mb-5 lg:hidden">
+              <AddToListButton slug={recipe.slug} grams={grams} />
+            </div>
 
             <div className="mb-4 flex items-end justify-between gap-3">
               <div>

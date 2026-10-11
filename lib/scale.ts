@@ -91,6 +91,11 @@ function formatCount(x: number, rest: string, bread: boolean): { amount: string;
   return { amount: kitchen(value, [0.5]), text, value };
 }
 
+/** The number of things a recipe needs once scaled (whole breads, whole eggs, half onions...). */
+export function roundCount(x: number, rest: string, bread: boolean): number {
+  return formatCount(x, rest, bread).value;
+}
+
 /** Scales amounts inside an alternative like "(or 1 tbsp tomato purée + 1 tsp chilli flakes)". */
 function scaleAlternative(rest: string, factor: number): string {
   return rest.replace(/\(or [^)]*\)/, (alt) =>

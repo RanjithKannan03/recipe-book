@@ -20,6 +20,7 @@ Use bun, not npm (lockfile is `bun.lock`).
 - `lib/parse.ts` reads `chicken-meal-prep-recipes.md` at build time (server only, uses `fs`) and relies on the Markdown structure below. Changing headings, the `**Wet:**` / `**Air fryer:**` lines or the blend usage bullets (`- **600g diced chicken breast**: about 2 tbsp blend + 1 tbsp oil`) requires updating the parser.
 - `lib/quantity.ts` parses an ingredient's leading quantity (fractions, ranges, units). The first `NNNg ... chicken` line sets a recipe's base weight. Lines without a leading number ("Salt, to taste") are never scaled.
 - `lib/scale.ts` (client-safe, no `fs`) scales by `grams / baseGrams` and does the kitchen rounding: spoon/cup unit conversion, grams to 5g, breads (pitta/tortilla/lavash) rounded up, eggs/cloves to whole numbers, onions to halves.
+- Shopping list (`/list`): `components/useShoppingList.ts` keeps `{slug, grams}` entries in localStorage, shared across components and tabs. `lib/shopping.ts` scales each recipe, then merges ingredients by name (before the first comma, parentheticals dropped, singularised), sums by unit family, and groups by aisle using keyword regexes. Counts such as breads are rounded per recipe before summing.
 - Seasoning blends are scaled so the blend makes the tbsp needed for the chosen chicken (the ratio comes from the usage bullets), or ×4 for a month jar.
 
 ## Document structure

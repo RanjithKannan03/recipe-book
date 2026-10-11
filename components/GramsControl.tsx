@@ -29,7 +29,10 @@ export function GramsControl({ value, onChange, presets, label = "Chicken you bo
   return (
     <div className={compact ? "space-y-2" : "space-y-3"}>
       <div className="flex items-center justify-between gap-2">
-        <label htmlFor={id} className={`font-medium ${compact ? "text-xs uppercase tracking-wide text-muted" : "text-sm"}`}>
+        <label
+          htmlFor={id}
+          className={`font-medium ${compact ? "text-xs uppercase tracking-wide text-muted" : "text-sm"}`}
+        >
           {label}
         </label>
         {badge && (
@@ -84,26 +87,28 @@ export function GramsControl({ value, onChange, presets, label = "Chicken you bo
         </button>
       </div>
 
-      <div className="no-scrollbar -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
-        {presets.map((p) => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => {
-              setDraft(null);
-              onChange(p);
-            }}
-            aria-pressed={p === value}
-            className={`h-9 shrink-0 rounded-full px-3.5 text-sm font-medium tabular-nums transition ${
-              p === value
-                ? "bg-accent text-accent-ink"
-                : "border border-line bg-surface text-muted hover:border-accent hover:text-ink"
-            }`}
-          >
-            {p >= 1000 ? `${p / 1000}kg` : `${p}g`}
-          </button>
-        ))}
-      </div>
+      {presets.length > 0 && (
+        <div className="no-scrollbar -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
+          {presets.map((p) => (
+            <button
+              key={p}
+              type="button"
+              onClick={() => {
+                setDraft(null);
+                onChange(p);
+              }}
+              aria-pressed={p === value}
+              className={`h-9 shrink-0 rounded-full px-3.5 text-sm font-medium tabular-nums transition ${
+                p === value
+                  ? "bg-accent text-accent-ink"
+                  : "border border-line bg-surface text-muted hover:border-accent hover:text-ink"
+              }`}
+            >
+              {p >= 1000 ? `${p / 1000}kg` : `${p}g`}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

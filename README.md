@@ -1,6 +1,6 @@
 # Chicken Prep
 
-Chicken meal-prep recipes and homemade seasoning blends that scale to however much chicken you bought. Enter the grams and every ingredient adjusts, including the number of wraps. Everything is cooked in the air fryer.
+Chicken meal-prep recipes and homemade seasoning blends that scale to however much chicken you bought. Enter the grams and every ingredient adjusts, including the number of wraps. Everything is cooked in the air fryer. Add several recipes to the shopping list and their ingredients are combined into one list, grouped by aisle.
 
 All the content lives in [`chicken-meal-prep-recipes.md`](chicken-meal-prep-recipes.md). The website reads that file when it builds, so you edit recipes there.
 
@@ -48,8 +48,9 @@ Keep the same layout as the existing recipes:
 
 ## Project layout
 
-- `app/`: pages (home, `/recipes/[slug]`, `/seasonings`)
+- `app/`: pages (home, `/recipes/[slug]`, `/seasonings`, `/list`)
 - `components/`: UI, including the grams control
 - `lib/parse.ts`: reads the Markdown file into recipes and blends
 - `lib/quantity.ts` and `lib/scale.ts`: parse amounts, then scale and round them
+- `lib/shopping.ts`: combines several scaled recipes into one shopping list
 - `scripts/serve.ts`: small Bun server for `out/`
