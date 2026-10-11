@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    circle { fill: #c2491d; }
+    @media (prefers-color-scheme: dark) { circle { fill: #f07a45; } }
+  </style>
+  <circle cx="50" cy="50" r="50" />
+  <text x="50" y="54" font-size="56" text-anchor="middle" dominant-baseline="middle">🍗</text>
+</svg>
