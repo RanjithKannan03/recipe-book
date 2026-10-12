@@ -7,6 +7,9 @@ import { CITRUS, parseIngredient, parseNumber, toTsp, type Ingredient } from "./
 
 export type Group = { title: string; items: Ingredient[] };
 
+/** A "### Tips" / "### Rolling" / "### Storage" section after the method: plain bullets, never scaled. */
+export type TipSection = { title: string; items: string[] };
+
 /** From a line like "**Air fryer:** 200°C · 12–15 min · turn halfway": temp "200°C", details ["12–15 min", "turn halfway"]. */
 export type AirFryer = { temp: string; details: string[] };
 
@@ -26,6 +29,7 @@ export type Recipe = {
   baseGrams: number;
   groups: Group[];
   steps: string[];
+  sections: TipSection[];
   notes: string[];
   callouts: string[];
 };
@@ -89,6 +93,7 @@ export function getCookbook(): Cookbook {
   let recipe: Recipe | null = null;
   let group: Group | null = null;
   let inMethod = false;
+  let tips: TipSection | null = null;
 
   for (const raw of lines) {
     const line = raw.trimEnd();
@@ -181,12 +186,14 @@ export function getCookbook(): Cookbook {
         baseGrams: 0,
         groups: [],
         steps: [],
+        sections: [],
         notes: [],
         callouts: [],
       };
       recipes.push(recipe);
       group = null;
       inMethod = false;
+      tips = null;
       continue;
     }
 
@@ -197,9 +204,20 @@ export function getCookbook(): Cookbook {
 
     const h3 = line.match(/^### (.+)$/);
     if (h3) {
-      inMethod = /^method$/i.test(h3[1].trim());
-      group = inMethod ? null : { title: h3[1].trim(), items: [] };
-      if (group) recipe.groups.push(group);
+      const title = h3[1].trim();
+      // Ingredient groups come before the method; any section after it is tips.
+      const afterMethod = inMethod || tips !== null;
+      inMethod = /^method$/i.test(title);
+      group = null;
+      tips = null;
+      if (inMethod) continue;
+      if (afterMethod) {
+        tips = { title, items: [] };
+        recipe.sections.push(tips);
+      } else {
+        group = { title, items: [] };
+        recipe.groups.push(group);
+      }
       continue;
     }
 
@@ -210,6 +228,8 @@ export function getCookbook(): Cookbook {
 
     if (air && !recipe.airFryer) {
       recipe.airFryer = air;
+    } else if (bullet && tips) {
+      tips.items.push(bullet[1]);
     } else if (bullet && group) {
       const ing = parseIngredient(bullet[1]);
       if (ing.kind === "chicken" && !recipe.baseGrams) recipe.baseGrams = ing.min;

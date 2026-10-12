@@ -12,6 +12,12 @@ import { useStoredState } from "./useStoredState";
 
 const PRESETS = [300, 450, 500, 600, 750, 900, 1000, 1500, 2000];
 
+function sectionIcon(title: string): string {
+  if (/stor|freez/i.test(title)) return "🧊";
+  if (/roll|wrap/i.test(title)) return "🌯";
+  return "💡";
+}
+
 export function RecipeScaler({ recipe }: { recipe: Recipe }) {
   const base = recipe.baseGrams;
   const [grams, setGrams] = useStoredState(`grams:${recipe.slug}`, base);
@@ -108,6 +114,31 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
               </li>
             ))}
           </ol>
+
+          {recipe.sections.length > 0 && (
+            <div className="mt-10 space-y-4">
+              {recipe.sections.map((sec) => (
+                <section key={sec.title} className="rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
+                  <h2 className="flex items-center gap-2 font-display text-xl font-semibold">
+                    <span aria-hidden>{sectionIcon(sec.title)}</span>
+                    {sec.title}
+                  </h2>
+                  <ul className="mt-3 space-y-2 text-[15px] leading-relaxed">
+                    {sec.items.map((t) => (
+                      <li key={t} className="flex gap-2">
+                        <span aria-hidden className="text-accent">
+                          •
+                        </span>
+                        <span>
+                          <Inline text={t} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
 
           {(recipe.callouts.length > 0 || recipe.notes.length > 0) && (
             <div className="mt-8 space-y-3">

@@ -38,6 +38,9 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - Multiply a blend by 4 and keep it in a jar for a month. Shake before use, because salt sinks.
 - Blends with sugar (BBQ, jerk) can burn, so cook those at 180°C for a few minutes longer.
 - First batch tastes off? Next time adjust: more salt if flat, more chilli for heat, more lemon/lime for tang.
+- Keep jars in a cool, dark cupboard. Blends lose flavour after about 6 months.
+- Cooked blend chicken: cool, refrigerate within 2 hours at 5°C or below and eat within 3–4 days (UK guidance is 2 days), or freeze portions for up to 3 months and thaw overnight in the fridge. Reheat in the air fryer at 180°C for 4–5 minutes until piping hot.
+- Freeze it raw: bag the chicken with the oil, blend and wet extras, flatten and freeze. It marinates as it thaws overnight in the fridge.
 - Buy spices in big bags from Aldi, Lidl or the world foods aisle. Most blends share a paprika, garlic, onion, salt and pepper base.
 
 ---
@@ -227,6 +230,19 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 7. Melt the butter over medium-low heat, then whisk in the honey and hot sauce until smooth and warm.
 8. Toss or brush the tenders with the sauce and serve straight away with ranch.
 
+### Tips
+- Brine overnight for the most tender chicken, but no longer than 24 hours or the texture goes soft.
+- Use one hand for wet and one for dry when coating, so your fingers don't clump with batter.
+- Spray every floury patch: dry flour stays white and powdery in the air fryer.
+- Leave a gap between tenders so the hot air reaches every side.
+
+### Storage
+- Store the tenders plain. Keep the hot honey sauce in a jar in the fridge for up to a week and warm it gently before tossing.
+- **Fridge:** cool on a rack so the bottoms don't steam, then refrigerate within 2 hours at 5°C or below in a box lined with kitchen paper. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked plain tenders on a tray, then bag them; they keep for 3 months. Or freeze the coated raw tenders the same way and air fry from frozen at 200°C for 18–20 minutes, turning and spraying halfway, until 75°C inside.
+- **Reheat:** air fry at 180°C for 5–6 minutes from the fridge or 10–12 minutes from frozen, until piping hot. Avoid the microwave; it makes the coating soggy.
+- Keep ranch in the fridge and use within 3 days; don't freeze it.
+
 ---
 
 ## 2. Hot honey chicken tenders (garlic ranch version)
@@ -281,6 +297,19 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 5. Warm the glaze ingredients over low heat until smooth and glossy; don't let it boil.
 6. Whisk the dip ingredients together and chill until needed.
 7. Brush the warm glaze over the chicken just before serving. Garnish with parsley.
+
+### Tips
+- Overnight in the buttermilk gives the juiciest tenders.
+- The marinade crumbles rubbed into the flour (step 2) are what make the coating craggy; don't skip them.
+- Press the final flour layer on firmly and let it rest the full 10 minutes so it sticks.
+- Keep the glaze below a simmer; boiling makes the butter split.
+
+### Storage
+- Store the tenders plain. Keep the glaze in a jar in the fridge for up to a week and warm it gently before brushing.
+- **Fridge:** cool on a rack so the bottoms don't steam, then refrigerate within 2 hours at 5°C or below in a box lined with kitchen paper. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked plain tenders on a tray, then bag them; they keep for 3 months. Or freeze the coated raw tenders the same way and air fry from frozen at 200°C for 18–20 minutes, turning and spraying halfway, until 75°C inside.
+- **Reheat:** air fry at 180°C for 5–6 minutes from the fridge or 10–12 minutes from frozen, until piping hot. Avoid the microwave; it makes the coating soggy.
+- Keep the garlic ranch dip in the fridge and use within 3 days; don't freeze it.
 
 ---
 
@@ -346,6 +375,19 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 6. Whisk the ranch ingredients together.
 7. Toss the chicken in the glaze just before serving.
 
+### Tips
+- Cut the strips evenly so they all finish cooking at the same time.
+- Double dipping (step 3) gives the thickest crust; press the last layer on firmly.
+- The glaze thickens as it cools. Loosen it with a splash of water before tossing.
+- Toss just before eating, not before storing.
+
+### Storage
+- Store the tenders plain. Keep the glaze in a jar in the fridge for up to a week.
+- **Fridge:** cool on a rack so the bottoms don't steam, then refrigerate within 2 hours at 5°C or below in a box lined with kitchen paper. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked plain tenders on a tray, then bag them; they keep for 3 months. Or freeze the coated raw tenders the same way and air fry from frozen at 200°C for 18–20 minutes, turning and spraying halfway, until 75°C inside.
+- **Reheat:** air fry at 180°C for 5–6 minutes from the fridge or 10–12 minutes from frozen, until piping hot. Avoid the microwave; it makes the coating soggy.
+- Keep ranch in the fridge and use within 3 days; don't freeze it.
+
 ---
 
 ## 4. Bang bang chicken tenders (air fryer)
@@ -380,6 +422,18 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 7. Spread a little extra sweet chilli on each tender, then dip in the bang bang sauce.
 
 **Per 3 tenders:** 477 kcal · 50g protein · 58g carbs · 5g fat
+
+### Tips
+- Crush the cornflakes to a mix of fine crumbs and pea-sized pieces: the crumbs stick and the pieces crunch.
+- Press the cornflakes on firmly with your palm.
+- Turn the tenders halfway for even colour, and check at 12 minutes, since cornflakes brown faster than flour.
+
+### Storage
+- Store the tenders plain; add the sweet chilli and sauce only when eating.
+- **Fridge:** cool on a rack so the bottoms don't steam, then refrigerate within 2 hours at 5°C or below in a box lined with kitchen paper. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked plain tenders on a tray, then bag them; they keep for 3 months. Or freeze the coated raw tenders the same way and air fry from frozen at 200°C for 18–20 minutes, turning and spraying halfway, until 75°C inside.
+- **Reheat:** air fry at 180°C for 5–6 minutes from the fridge or 10–12 minutes from frozen, until piping hot. Avoid the microwave; it makes the coating soggy.
+- The bang bang sauce is yoghurt-based: keep it in the fridge for 2–3 days and don't freeze it. It takes 2 minutes to make fresh.
 
 ---
 
@@ -433,6 +487,29 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 5. Spread garlic sauce on a pitta, add chicken, chips, sumac onions and tomatoes. Roll tightly.
 6. Brush the wrap with the glaze and air fry at 200°C for 3–4 minutes until golden and crispy.
 7. Serve warm with extra garlic sauce and chips.
+
+### Tips
+- Thighs stay juicier than breast and reheat better, so they're the best choice for meal prep.
+- Marinate overnight for the deepest flavour.
+- Let the edges char a little in the air fryer; that's the shawarma flavour.
+
+### Rolling
+- Warm each pitta for 30 seconds in the air fryer at 180°C first. Cold bread cracks when rolled.
+- Spread the garlic sauce over the whole pitta, right to the edges, so it glues the wrap shut.
+- Lay the filling in a line across the lower third, leaving about 3cm clear at each side. Don't overfill: a small handful of chicken is plenty.
+- Keep wet fillings like tomato in the middle, away from the edges.
+- Fold the bottom edge up and tuck it tightly under the filling, fold in one side to close the end, then roll away from you, keeping it tight.
+- Put it in the air fryer seam-side down so the seam seals as it crisps.
+- Wrap the bottom half in foil or baking paper to hold it while you eat.
+
+### Storage
+- **Fridge:** cool, then refrigerate within 2 hours at 5°C or below in an airtight box. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked chicken in single portions for up to 3 months. Thaw overnight in the fridge and eat within 24 hours; don't refreeze.
+- **Reheat:** air fry at 180°C for 4–5 minutes until piping hot, with a splash of water or a little extra oil if it looks dry. Reheat only once.
+- **Freeze it raw:** bag the raw chicken in its marinade, flatten and freeze. It finishes marinating as it thaws overnight in the fridge; then just air fry.
+- Keep the glaze in a jar in the fridge for up to a week; brush it on after reheating so it doesn't burn.
+- Sumac onions are best the same day and keep up to 2 days in the fridge.
+- **Don't store assembled wraps:** the bread goes soggy. Pack the chicken, onions and salad separately and roll on the day.
 
 ---
 
@@ -490,6 +567,26 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 4. Toss the chicken with the melted ghee and air fry at 200°C for 12–15 minutes (sliced breast) or 15–18 minutes (thighs), shaking halfway, until cooked through. Cook in batches so the basket isn't crowded.
 5. Warm a tortilla, then add sauce, sumac onions, chicken, tomatoes, cucumber, gherkins, chips and more sauce. Wrap and serve.
 
+### Tips
+- Slice the chicken thinly across the grain; thin slices cook fast and stay tender.
+- Toss in the melted ghee right before air frying for crisp, charred edges.
+- Rinsing the onion takes the harsh bite out.
+
+### Rolling
+- Warm each tortilla for 30 seconds in the air fryer at 180°C so it bends without cracking.
+- Spread sauce over the middle, then pile the filling in a rectangle just below the centre, leaving about 5cm clear at each side.
+- Fold the bottom edge over the filling and pull it back snugly, fold in both sides, then roll up tightly.
+- For a crisp, sealed wrap, air fry seam-side down at 200°C for 2–3 minutes.
+- Cut in half on a slant and wrap the bottom in foil to hold it together.
+
+### Storage
+- **Fridge:** cool, then refrigerate within 2 hours at 5°C or below in an airtight box. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked chicken in single portions for up to 3 months. Thaw overnight in the fridge and eat within 24 hours; don't refreeze.
+- **Reheat:** air fry at 180°C for 4–5 minutes until piping hot, with a splash of water or a little extra oil if it looks dry. Reheat only once.
+- **Freeze it raw:** bag the raw chicken in its marinade, flatten and freeze. It finishes marinating as it thaws overnight in the fridge; then just air fry.
+- Keep the garlic sauce in the fridge and use within 3 days; don't freeze it.
+- **Don't store assembled wraps:** the bread goes soggy. Pack the chicken, onions and salad separately and roll on the day.
+
 ---
 
 ## 7. Crispy chicken lavash wrap
@@ -537,6 +634,27 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 4. Spread garlic sauce over each lavash, then layer lettuce, chicken, tomatoes, onion, pickles and chips. Drizzle with more sauce and roll tightly.
 5. Brush lightly with oil and air fry seam-side down at 200°C for 3–4 minutes until golden and crispy.
 6. Slice in half and serve.
+
+### Tips
+- A mix of breast and thighs gives lean bites with juicy ones; all thighs reheat best.
+- Keep the pieces the same size so they cook evenly.
+
+### Rolling
+- Lavash dries out and cracks quickly. Keep the breads under a clean tea towel, and if one feels stiff, sprinkle it with a little water and warm it for 20 seconds in the air fryer.
+- Spread the garlic sauce right to the edges; it holds the roll together.
+- Layer the filling in a strip along one short end, leaving about 5cm clear at the long sides.
+- Fold both long sides in over the filling, then roll tightly from the filled end, tucking as you go.
+- Air fry seam-side down (step 5) so the seam seals.
+- Slice in half on a slant with a sharp knife.
+
+### Storage
+- **Fridge:** cool, then refrigerate within 2 hours at 5°C or below in an airtight box. Eat within 3–4 days (UK guidance is 2 days, so freeze anything for later in the week if you'd rather be safe).
+- **Freezer:** freeze cooked chicken in single portions for up to 3 months. Thaw overnight in the fridge and eat within 24 hours; don't refreeze.
+- **Reheat:** air fry at 180°C for 4–5 minutes until piping hot, with a splash of water or a little extra oil if it looks dry. Reheat only once.
+- **Freeze it raw:** bag the raw chicken in its marinade, flatten and freeze. It finishes marinating as it thaws overnight in the fridge; then just air fry.
+- Keep the garlic sauce in the fridge and use within 3 days; don't freeze it.
+- Keep the lettuce dry in a box lined with kitchen paper so it stays crisp.
+- **Don't store assembled wraps:** the bread goes soggy. Pack the chicken, onions and salad separately and roll on the day.
 
 ---
 
