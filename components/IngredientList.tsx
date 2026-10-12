@@ -20,12 +20,12 @@ export function IngredientList({ groups, checked, onToggle }: Props) {
               const done = checked.has(id);
               return (
                 <li key={id}>
-                  <label className="flex min-h-11 cursor-pointer items-start gap-3 py-2 text-[15px] leading-snug">
+                  <label className="flex min-h-11 cursor-pointer items-start gap-3 py-2 text-[0.9375rem] leading-snug lg:text-lg">
                     <input
                       type="checkbox"
                       checked={done}
                       onChange={() => onToggle(id)}
-                      className="mt-0.5 size-[18px] shrink-0 cursor-pointer rounded accent-[var(--accent)]"
+                      className="mt-0.5 size-[1.125rem] shrink-0 cursor-pointer rounded accent-[var(--accent)]"
                     />
                     <span className={`transition ${done ? "text-muted line-through decoration-line" : ""}`}>
                       {item.amount && (

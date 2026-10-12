@@ -37,7 +37,7 @@ export function CookPanel({ air }: { air: AirFryer }) {
     <dl className="flex flex-wrap gap-2">
       {tiles.map((t) => (
         <div key={t.label + t.value} className="rounded-2xl border border-line bg-surface px-4 py-2.5 shadow-card">
-          <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-herb">{t.label}</dt>
+          <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-herb">{t.label}</dt>
           <dd className="font-display text-lg font-semibold leading-tight tabular-nums">{t.value}</dd>
         </div>
       ))}

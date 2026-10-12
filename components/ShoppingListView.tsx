@@ -20,7 +20,7 @@ function Line({ line, done, onToggle }: { line: ShoppingLine; done: boolean; onT
           type="checkbox"
           checked={done}
           onChange={onToggle}
-          className="mt-0.5 size-[18px] shrink-0 cursor-pointer accent-[var(--accent)]"
+          className="mt-0.5 size-[1.125rem] shrink-0 cursor-pointer accent-[var(--accent)]"
         />
         <span className={`min-w-0 flex-1 leading-snug transition ${done ? "text-muted line-through" : ""}`}>
           {line.amount && <span className="font-semibold tabular-nums">{line.amount}</span>} {line.name}
@@ -31,7 +31,7 @@ function Line({ line, done, onToggle }: { line: ShoppingLine; done: boolean; onT
             <span
               key={t.title}
               title={`Used in ${t.title}`}
-              className="grid h-5 min-w-5 place-items-center rounded-full bg-surface-2 px-1.5 text-[11px] font-semibold text-muted tabular-nums"
+              className="grid h-5 min-w-5 place-items-center rounded-full bg-surface-2 px-1.5 text-[0.6875rem] font-semibold text-muted tabular-nums"
             >
               {t.label}
             </span>

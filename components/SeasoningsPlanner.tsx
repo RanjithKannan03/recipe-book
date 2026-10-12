@@ -59,7 +59,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
 
   return (
     <>
-      <section className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <section className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <div className="space-y-5 rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
           <Segmented
             label="Cut of chicken"
@@ -119,7 +119,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
             +
           </span>
         </summary>
-        <div className="mt-4 grid gap-6 text-[15px] leading-relaxed md:grid-cols-2">
+        <div className="mt-4 grid gap-6 text-[0.9375rem] leading-relaxed md:grid-cols-2">
           <ol className="space-y-3">
             {guide.steps.map((s, i) => (
               <li key={i} className="flex gap-3">
@@ -159,7 +159,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
         </div>
       </details>
 
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {blends.map((b) => {
           const factor = blendFactor(b, blendTbsp, jar);
           const makes = spoons((b.totalTsp * factor) / 3);
@@ -193,7 +193,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
                   ))}
                 </div>
               )}
-              <ul className="mt-4 divide-y divide-line/70 text-[15px]">
+              <ul className="mt-4 divide-y divide-line/70 text-[0.9375rem]">
                 {b.items.map((item, i) => {
                   const s = scaleIngredient(item, factor);
                   return (

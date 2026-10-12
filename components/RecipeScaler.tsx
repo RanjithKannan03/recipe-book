@@ -108,7 +108,7 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
                 >
                   {i + 1}
                 </span>
-                <p className="pt-1.5 leading-relaxed">
+                <p className="pt-1.5 leading-relaxed lg:text-lg">
                   <Inline text={step} />
                 </p>
               </li>
@@ -123,7 +123,7 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
                     <span aria-hidden>{sectionIcon(sec.title)}</span>
                     {sec.title}
                   </h2>
-                  <ul className="mt-3 space-y-2 text-[15px] leading-relaxed">
+                  <ul className="mt-3 space-y-2 text-[0.9375rem] leading-relaxed">
                     {sec.items.map((t) => (
                       <li key={t} className="flex gap-2">
                         <span aria-hidden className="text-accent">

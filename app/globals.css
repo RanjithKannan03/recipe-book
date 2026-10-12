@@ -53,6 +53,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Larger type on laptops so a recipe can be read from across the kitchen. Everything is sized in rem,
+   so this scales the whole layout; media queries use the browser default, so breakpoints don't move. */
+@media (min-width: 64rem) {
+  html {
+    font-size: 112.5%;
+  }
+}
+@media (min-width: 80rem) {
+  html {
+    font-size: 125%;
+  }
+}
+
 body {
   background: var(--bg);
   color: var(--ink);

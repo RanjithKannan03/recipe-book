@@ -27,21 +27,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-GB">
       <body className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}>
         <header className="border-b border-line/70">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-            <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
+            <Link href="/" className="flex shrink-0 items-center gap-2 whitespace-nowrap font-display text-lg font-semibold tracking-tight">
               <span aria-hidden className="grid size-8 place-items-center rounded-full bg-accent text-accent-ink">
                 🍗
               </span>
-              Chicken Prep
+              <span className="max-[359px]:sr-only">Chicken Prep</span>
             </Link>
-            <div className="flex items-center gap-1 text-sm font-medium">
+            <div className="flex items-center gap-0.5 text-sm font-medium sm:gap-1">
               <Link
                 href="/#recipes"
                 className="hidden rounded-full px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink sm:block"
               >
                 Recipes
               </Link>
-              <Link href="/seasonings" className="rounded-full px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink">
+              <Link href="/seasonings" className="rounded-full px-2.5 py-2 sm:px-3 text-muted hover:bg-surface-2 hover:text-ink">
                 Seasonings
               </Link>
               <ListNavLink />
