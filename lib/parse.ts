@@ -3,7 +3,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { parseIngredient, parseNumber, toTsp, type Ingredient } from "./quantity";
+import { CITRUS, parseIngredient, parseNumber, toTsp, type Ingredient } from "./quantity";
 
 export type Group = { title: string; items: Ingredient[] };
 
@@ -36,6 +36,10 @@ export type Blend = {
   note?: string;
   items: Ingredient[];
   wet?: string;
+  /** The chicken weight the Wet line's amounts are for, from "per 600g chicken". */
+  wetGrams?: number;
+  /** Lemons/limes named in the Wet line, e.g. "juice of ½ lemon", for the shopping list. */
+  wetItems: Ingredient[];
   airFryer?: AirFryer;
   /** Total volume of the blend as written, in teaspoons. */
   totalTsp: number;
@@ -109,7 +113,7 @@ export function getCookbook(): Cookbook {
         if (/how to use/i.test(h2[1])) section = "guide";
         else {
           section = "blend";
-          blends.push({ slug: slugify(h2[1]), name: h2[1].trim(), items: [], totalTsp: 0 });
+          blends.push({ slug: slugify(h2[1]), name: h2[1].trim(), items: [], wetItems: [], totalTsp: 0 });
         }
         continue;
       }
@@ -146,7 +150,14 @@ export function getCookbook(): Cookbook {
         const italic = trimmed.match(/^\*([^*].*)\*$/);
         const air = parseAirFryer(trimmed);
         if (air) blend.airFryer = air;
-        else if (wet) blend.wet = wet[1];
+        else if (wet) {
+          blend.wet = wet[1];
+          const per = wet[1].match(/per (\d+)g chicken/);
+          if (per) blend.wetGrams = Number(per[1]);
+          for (const m of wet[1].matchAll(CITRUS)) {
+            blend.wetItems.push({ kind: "count", min: parseNumber(m[1]), unit: null, rest: m[2].replace(/s$/, "") });
+          }
+        }
         else if (bullet) blend.items.push(parseIngredient(bullet[1]));
         else if (italic) blend.note = italic[1];
       }
@@ -218,6 +229,11 @@ export function getCookbook(): Cookbook {
     r.callouts = sharedCallouts.filter((c) => r.number >= c.from && r.number <= c.to).map((c) => c.text);
     if (!r.baseGrams) {
       throw new Error(`Recipe "${r.title}" has no chicken weight in grams (e.g. "- 900g chicken breast").`);
+    }
+  }
+  for (const b of blends) {
+    if (b.wetItems.length && !b.wetGrams) {
+      throw new Error(`The Wet line for "${b.name}" names lemons or limes but not "per 600g chicken".`);
     }
   }
   if (guide.usage.length === 0) {

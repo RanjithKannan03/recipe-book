@@ -55,7 +55,7 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - 1 tsp sugar
 - ½ tsp black pepper
 
-**Wet:** oil + juice of ½ lemon per batch. Don't skip the lemon; it gives the tangy peri-peri flavour.
+**Wet:** oil + juice of ½ lemon per 600g chicken. Don't skip the lemon; it gives the tangy peri-peri flavour.
 
 **Air fryer:** 200°C · diced breast 12–15 min · thighs 18–22 min
 
@@ -133,7 +133,7 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - 2 tsp salt
 - 1 tsp black pepper
 
-**Wet:** oil + lime juice + a splash of soy sauce. Best marinated overnight. Cook at 180°C.
+**Wet:** oil + juice of ½ lime per 600g chicken + a splash of soy sauce. Best marinated overnight. Cook at 180°C.
 
 **Air fryer:** 180°C · diced breast 15–18 min · thighs 22–25 min
 
@@ -149,7 +149,7 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - 1 tsp ground ginger
 - 2 tsp salt
 
-**Wet:** a few spoons of plain yoghurt + lemon juice, with only a little oil. Excellent on thighs.
+**Wet:** a few spoons of plain yoghurt + juice of ½ lemon per 600g chicken, with only a little oil. Excellent on thighs.
 
 **Air fryer:** 200°C · diced breast 12–15 min · thighs 18–22 min
 
@@ -164,7 +164,7 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - 2 tsp salt
 - 1 tsp black pepper
 
-**Wet:** oil + zest and juice of 1 lemon.
+**Wet:** oil + zest and juice of 1 lemon per 600g chicken.
 
 **Air fryer:** 200°C · diced breast 12–15 min · thighs 18–22 min
 

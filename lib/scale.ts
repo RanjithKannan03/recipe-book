@@ -1,7 +1,8 @@
 // Scales parsed ingredients by a factor and formats them the way a cook would write them:
 // kitchen fractions for spoons/cups, round grams, whole breads, and singular/plural nouns.
 
-import { parseNumber, type Ingredient, type Unit } from "./quantity";
+import type { Blend, Usage } from "./parse";
+import { CITRUS, parseNumber, type Ingredient, type Unit } from "./quantity";
 
 export type ScaledIngredient = {
   /** The amount, e.g. "1½ tbsp" or "3"; empty when the line has no quantity. */
@@ -79,6 +80,8 @@ const COUNT_RULES: CountRule[] = [
   { noun: /\bcloves?\b/, one: "clove", many: "cloves", round: whole },
   { noun: /\bsprays?\b/, one: "spray", many: "sprays", round: whole },
   { noun: /\bonions?\b/, one: "onion", many: "onions", round: half },
+  { noun: /\blemons?\b/, one: "lemon", many: "lemons", round: half },
+  { noun: /\blimes?\b/, one: "lime", many: "limes", round: half },
   { noun: /\bbreads?\b/, one: "bread", many: "breads", round: whole },
   { noun: /\bwraps?\b/, one: "wrap", many: "wraps", round: whole },
 ];
@@ -153,4 +156,27 @@ export function scaleIngredient(ing: Ingredient, factor: number, chickenGrams?: 
 export function formatFactor(factor: number): string {
   if (Math.abs(factor - 1) < 0.005) return "Original";
   return `×${Number(factor.toFixed(2))}`;
+}
+
+/** "oil + juice of ½ lemon per 600g chicken" at 900g → "oil + juice of 1 lemon". */
+export function scaleWet(blend: Blend, grams: number): string {
+  const text = blend.wet ?? "";
+  if (!blend.wetGrams) return text;
+  const factor = grams / blend.wetGrams;
+  return text
+    .replace(/\s*per \d+g chicken/, "")
+    .replace(CITRUS, (_, n: string, noun: string) => {
+      const c = formatCount(parseNumber(n) * factor, noun, false);
+      return `${c.amount} ${c.text}`;
+    });
+}
+
+/** How much blend and oil a weight of chicken needs, from the usage line for that cut. */
+export function blendAmounts(usage: Usage, grams: number) {
+  return { blendTbsp: (grams * usage.blendTbsp) / usage.grams, oilTbsp: (grams * usage.oilTbsp) / usage.grams };
+}
+
+/** What to multiply a blend recipe by so it makes `blendTbsp`, or ×4 for a month jar. */
+export function blendFactor(blend: Blend, blendTbsp: number, jar: boolean): number {
+  return jar ? 4 : (blendTbsp * 3) / blend.totalTsp;
 }

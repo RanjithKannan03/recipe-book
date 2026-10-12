@@ -32,6 +32,9 @@ const LEADING = new RegExp(
   "i",
 );
 
+/** Lemons and limes inside a sentence, e.g. "juice of ½ lemon": [, "½", "lemon"]. */
+export const CITRUS = /(\d+[½⅓⅔¼¾]?|[½⅓⅔¼¾]) (lemons?|limes?)\b/g;
+
 export function parseNumber(token: string): number {
   const m = token.match(/^(\d+(?:\.\d+)?)?([½⅓⅔¼¾⅛])?$/);
   if (!m) return NaN;

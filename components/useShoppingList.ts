@@ -2,10 +2,14 @@
 
 import { useSyncExternalStore } from "react";
 
-// The shopping list (which recipes, at how many grams) lives in localStorage and is shared by
-// every component on the page and across tabs.
+// The shopping list (which recipes and blends, at how many grams) lives in localStorage and is
+// shared by every component on the page and across tabs.
 
-export type ListItem = { slug: string; grams: number };
+/** Blends are stored as "blend:<slug>", with the cut (index into the usage lines) and jar mode. */
+export type ListItem = { slug: string; grams: number; cut?: number; jar?: boolean };
+export type ListOptions = Pick<ListItem, "cut" | "jar">;
+
+export const blendKey = (slug: string) => `blend:${slug}`;
 
 const KEY = "shopping-list:v1";
 const EMPTY: ListItem[] = [];
@@ -59,10 +63,12 @@ export function useShoppingList() {
   return {
     items,
     get: (slug: string) => items.find((i) => i.slug === slug),
-    /** Adds the recipe, or updates its grams if it is already on the list. */
-    set: (slug: string, grams: number) => {
+    /** Adds the recipe or blend, or updates it if it is already on the list. */
+    set: (slug: string, grams: number, options: ListOptions = {}) => {
       const list = current();
-      write(list.some((i) => i.slug === slug) ? list.map((i) => (i.slug === slug ? { slug, grams } : i)) : [...list, { slug, grams }]);
+      const old = list.find((i) => i.slug === slug);
+      const item = { ...old, ...options, slug, grams };
+      write(old ? list.map((i) => (i === old ? item : i)) : [...list, item]);
     },
     remove: (slug: string) => write(current().filter((i) => i.slug !== slug)),
     clear: () => write([]),

@@ -5,7 +5,7 @@ import { ShoppingListView } from "@/components/ShoppingListView";
 export const metadata: Metadata = { title: "Shopping list" };
 
 export default function ListPage() {
-  const { recipes } = getCookbook();
+  const { recipes, blends, guide } = getCookbook();
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-12">
@@ -15,11 +15,11 @@ export default function ListPage() {
           Shopping list
         </h1>
         <p className="mt-3 text-lg text-muted">
-          Ingredients from every recipe you add, scaled to your chicken and combined by aisle.
+          Ingredients from every recipe and seasoning blend you add, scaled to your chicken and combined by aisle.
         </p>
       </header>
 
-      <ShoppingListView recipes={recipes} />
+      <ShoppingListView recipes={recipes} blends={blends} usage={guide.usage} />
     </main>
   );
 }

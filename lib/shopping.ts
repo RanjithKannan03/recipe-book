@@ -1,18 +1,23 @@
-// Combines the scaled ingredients of several recipes into one shopping list, grouped by aisle.
+// Combines the scaled ingredients of several recipes and seasoning blends into one shopping list,
+// grouped by aisle.
 
-import type { Recipe } from "./parse";
+import type { Blend, Recipe, Usage } from "./parse";
 import type { Ingredient } from "./quantity";
-import { roundCount, scaleIngredient } from "./scale";
+import { blendAmounts, blendFactor, roundCount, scaleIngredient } from "./scale";
 
-export type ShoppingEntry = { recipe: Recipe; grams: number };
+export type ShoppingEntry =
+  | { recipe: Recipe; grams: number }
+  | { blend: Blend; usage: Usage; grams: number; jar: boolean };
+
+/** Where an ingredient comes from: recipe "3", or blend "Peri-peri". */
+export type SourceTag = { label: string; title: string; order: number };
 
 export type ShoppingLine = {
   key: string;
   amount: string;
   name: string;
   optional: boolean;
-  /** Recipe numbers that use this ingredient. */
-  recipes: number[];
+  sources: SourceTag[];
 };
 
 export type ShoppingSection = { aisle: string; lines: ShoppingLine[] };
@@ -22,6 +27,39 @@ export type ShoppingList = {
   /** Unmeasured lines such as "Salt, to taste" or "Squeeze of lemon juice". */
   extras: ShoppingLine[];
 };
+
+type SourceGroup = { title: string; items: Ingredient[]; factor: number };
+type Source = { tag: SourceTag; grams: number; groups: SourceGroup[] };
+
+/** Turns a list entry into ingredient groups, each with the factor to scale it by. */
+function toSource(entry: ShoppingEntry): Source {
+  if ("recipe" in entry) {
+    const { recipe, grams } = entry;
+    const factor = grams / recipe.baseGrams;
+    return {
+      tag: { label: String(recipe.number), title: `Recipe ${recipe.number}: ${recipe.title}`, order: recipe.number },
+      grams,
+      groups: recipe.groups.map((g) => ({ ...g, factor })),
+    };
+  }
+  const { blend, usage, grams, jar } = entry;
+  const { blendTbsp, oilTbsp } = blendAmounts(usage, grams);
+  const factor = blendFactor(blend, blendTbsp, jar);
+  const groups: SourceGroup[] = [{ title: blend.name, items: blend.items, factor }];
+  // A month jar is just the dry blend; a single cook also needs the chicken, oil and lemons/limes.
+  if (!jar) {
+    groups.push(
+      { title: "Chicken", items: [{ kind: "chicken", min: grams, unit: "g", rest: usage.label }], factor: 1 },
+      { title: "Oil", items: [{ kind: "measure", min: oilTbsp, unit: "tbsp", rest: "oil" }], factor: 1 },
+      { title: "Wet", items: blend.wetItems, factor: blend.wetGrams ? grams / blend.wetGrams : 1 },
+    );
+  }
+  return {
+    tag: { label: blend.name.split(" ")[0], title: `${blend.name} blend`, order: 1000 },
+    grams: jar ? 0 : grams,
+    groups,
+  };
+}
 
 const TSP_PER = { tsp: 1, tbsp: 3, cup: 48 } as const;
 
@@ -34,7 +72,7 @@ type Acc = {
   name: string;
   chicken: boolean;
   optional: boolean;
-  recipes: Set<number>;
+  sources: Map<string, SourceTag>;
   totals: Map<Family, Total>;
   /** Biggest spoon unit seen, so 2 cups + 1 cup stays in cups. */
   spoon: "tsp" | "tbsp" | "cup";
@@ -42,9 +80,10 @@ type Acc = {
 
 /** Display name: the part before the first comma, without parentheticals like "(e.g. Frank's)". */
 function cleanName(rest: string): string {
+  // Parentheticals go first, so "chilli powder (1 = mild, 2 = hot)" isn't cut at its comma.
   return rest
-    .split(",")[0]
     .replace(/\s*\([^)]*\)/g, "")
+    .split(",")[0]
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -64,7 +103,7 @@ const AISLES: [string, RegExp][] = [
   ["Baking & dry goods", /baking powder|flour|cornflake|sugar/],
   [
     "Spices & dried herbs",
-    /powder|paprika|cumin|ground|turmeric|black pepper|white pepper|cayenne|oregano|dill|sumac|chilli flake|dried|thyme|salt|garam|allspice|five spice|cinnamon|nutmeg/,
+    /powder|granules|paprika|cumin|ground|turmeric|black pepper|white pepper|cayenne|oregano|dill|sumac|chilli flake|dried|thyme|salt|garam|allspice|five spice|cinnamon|nutmeg/,
   ],
   ["Dairy & eggs", /buttermilk|yoghurt|soured cream|butter|egg|ghee/],
   [
@@ -104,21 +143,22 @@ function formatTotal(family: Family, t: Total, acc: Acc): { amount: string; name
   return { amount: s.amount, name: s.text };
 }
 
+const byOrder = (a: SourceTag, b: SourceTag) => a.order - b.order || a.label.localeCompare(b.label);
+
 export function buildShoppingList(entries: ShoppingEntry[]): ShoppingList {
   const items = new Map<string, Acc>();
   const extras = new Map<string, ShoppingLine>();
 
-  for (const { recipe, grams } of entries) {
-    const factor = grams / recipe.baseGrams;
-    for (const group of recipe.groups) {
+  for (const { tag, grams, groups } of entries.map(toSource)) {
+    for (const { factor, ...group } of groups) {
       const groupOptional = /optional/i.test(group.title);
       for (const ing of group.items) {
         if (ing.kind === "text") {
           const name = cleanName(ing.text);
           // "Pinch of salt" / "Squeeze of lemon juice" match "salt" / "lemon juice" if those are measured elsewhere
           const key = nameKey(name.replace(/^(pinch of|squeeze of|chopped|extra)\s+/i, ""));
-          const line = extras.get(key) ?? { key, amount: "", name, optional: false, recipes: [] };
-          if (!line.recipes.includes(recipe.number)) line.recipes.push(recipe.number);
+          const line = extras.get(key) ?? { key, amount: "", name, optional: false, sources: [] };
+          if (!line.sources.some((t) => t.title === tag.title)) line.sources.push(tag);
           extras.set(key, line);
           continue;
         }
@@ -128,11 +168,11 @@ export function buildShoppingList(entries: ShoppingEntry[]): ShoppingList {
         const optional = groupOptional || /\(optional\)/i.test(ing.rest);
         let acc = items.get(key);
         if (!acc) {
-          acc = { key, name, chicken: ing.kind === "chicken", optional, recipes: new Set(), totals: new Map(), spoon: "tsp" };
+          acc = { key, name, chicken: ing.kind === "chicken", optional, sources: new Map(), totals: new Map(), spoon: "tsp" };
           items.set(key, acc);
         }
         acc.optional &&= optional;
-        acc.recipes.add(recipe.number);
+        acc.sources.set(tag.title, tag);
 
         const lo = ing.min;
         const hi = ing.max ?? ing.min;
@@ -169,7 +209,7 @@ export function buildShoppingList(entries: ShoppingEntry[]): ShoppingList {
       amount: amounts.join(" + "),
       name,
       optional: acc.optional,
-      recipes: [...acc.recipes].sort((a, b) => a - b),
+      sources: [...acc.sources.values()].sort(byOrder),
     });
     byAisle.set(aisle, lines);
   }
@@ -182,6 +222,7 @@ export function buildShoppingList(entries: ShoppingEntry[]): ShoppingList {
   // Drop extras that are already on the list with an amount (e.g. "Salt, to taste" when salt is measured too).
   const extraLines = [...extras.values()]
     .filter((e) => !items.has(e.key))
+    .map((e) => ({ ...e, sources: e.sources.sort(byOrder) }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return { sections, extras: extraLines };

@@ -1,7 +1,8 @@
 "use client";
 
 import type { Blend, BlendGuide } from "@/lib/parse";
-import { scaleIngredient } from "@/lib/scale";
+import { blendAmounts, blendFactor, scaleIngredient, scaleWet } from "@/lib/scale";
+import { BlendAddButton } from "./BlendAddButton";
 import { GramsControl } from "./GramsControl";
 import { Inline } from "./Inline";
 import { useStoredState } from "./useStoredState";
@@ -50,8 +51,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
   const [jar, setJar] = useStoredState("jar:seasonings", false);
 
   const usage = guide.usage[cut] ?? guide.usage[0];
-  const blendTbsp = (grams * usage.blendTbsp) / usage.grams;
-  const oilTbsp = (grams * usage.oilTbsp) / usage.grams;
+  const { blendTbsp, oilTbsp } = blendAmounts(usage, grams);
   const cookTime = guide.cookTimes[cut];
   const cutWord = /thigh/i.test(usage.label) ? /thigh/i : /breast/i;
   const defaultTemp = cookTime?.text.match(/\d+°C/)?.[0];
@@ -161,7 +161,7 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
 
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {blends.map((b) => {
-          const factor = jar ? 4 : (blendTbsp * 3) / b.totalTsp;
+          const factor = blendFactor(b, blendTbsp, jar);
           const makes = spoons((b.totalTsp * factor) / 3);
           return (
             <li
@@ -208,16 +208,19 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
                   );
                 })}
               </ul>
-              {b.wet && (
-                <p className="mt-auto pt-4 text-sm">
-                  <span className="mr-1 rounded-md bg-herb-soft px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-herb">
-                    Wet
-                  </span>
-                  <span className="text-muted">
-                    <Inline text={b.wet} />
-                  </span>
-                </p>
-              )}
+              <div className="mt-auto space-y-4 pt-4">
+                {b.wet && (
+                  <p className="text-sm">
+                    <span className="mr-1 rounded-md bg-herb-soft px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-herb">
+                      Wet{b.wetGrams ? ` · ${grams}g` : ""}
+                    </span>
+                    <span key={grams} className="text-muted">
+                      <Inline text={scaleWet(b, grams)} />
+                    </span>
+                  </p>
+                )}
+                <BlendAddButton slug={b.slug} name={b.name} grams={grams} cut={cut} jar={jar} />
+              </div>
             </li>
           );
         })}

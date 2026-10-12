@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
-import type { Recipe } from "@/lib/parse";
-import { buildShoppingList, shoppingListText, type ShoppingLine } from "@/lib/shopping";
+import type { Blend, Recipe, Usage } from "@/lib/parse";
+import { buildShoppingList, shoppingListText, type ShoppingEntry, type ShoppingLine } from "@/lib/shopping";
 import { GramsControl } from "./GramsControl";
-import { useShoppingList } from "./useShoppingList";
+import { blendKey, useShoppingList } from "./useShoppingList";
 import { useStoredState } from "./useStoredState";
 
 const noop = () => () => {};
@@ -27,13 +27,13 @@ function Line({ line, done, onToggle }: { line: ShoppingLine; done: boolean; onT
           {line.optional && <span className="ml-1.5 text-xs text-muted">(optional)</span>}
         </span>
         <span className="flex shrink-0 gap-1 pt-0.5">
-          {line.recipes.map((n) => (
+          {line.sources.map((t) => (
             <span
-              key={n}
-              title={`Used in recipe ${n}`}
-              className="grid h-5 min-w-5 place-items-center rounded-full bg-surface-2 px-1 text-[11px] font-semibold text-muted tabular-nums"
+              key={t.title}
+              title={`Used in ${t.title}`}
+              className="grid h-5 min-w-5 place-items-center rounded-full bg-surface-2 px-1.5 text-[11px] font-semibold text-muted tabular-nums"
             >
-              {n}
+              {t.label}
             </span>
           ))}
         </span>
@@ -42,7 +42,9 @@ function Line({ line, done, onToggle }: { line: ShoppingLine; done: boolean; onT
   );
 }
 
-export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
+type Props = { recipes: Recipe[]; blends: Blend[]; usage: Usage[] };
+
+export function ShoppingListView({ recipes, blends, usage }: Props) {
   const hydrated = useHydrated();
   const list = useShoppingList();
   const [ticked, setTicked] = useStoredState<string[]>("shopping-ticks:v1", []);
@@ -51,12 +53,17 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
 
   const entries = useMemo(
     () =>
-      list.items.flatMap((i) => {
+      list.items.flatMap((i): ShoppingEntry[] => {
         const recipe = recipes.find((r) => r.slug === i.slug);
-        return recipe ? [{ recipe, grams: i.grams }] : [];
+        if (recipe) return [{ recipe, grams: i.grams }];
+        const blend = blends.find((b) => blendKey(b.slug) === i.slug);
+        if (blend) return [{ blend, usage: usage[i.cut ?? 0] ?? usage[0], grams: i.grams, jar: !!i.jar }];
+        return [];
       }),
-    [list.items, recipes],
+    [list.items, recipes, blends, usage],
   );
+  const recipeEntries = entries.flatMap((e) => ("recipe" in e ? [e] : []));
+  const blendEntries = entries.flatMap((e) => ("blend" in e ? [e] : []));
   const shopping = useMemo(() => buildShoppingList(entries), [entries]);
 
   useEffect(() => {
@@ -81,8 +88,8 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
         </p>
         <h2 className="mt-3 font-display text-2xl font-semibold">Your list is empty</h2>
         <p className="mx-auto mt-2 max-w-sm text-muted">
-          Open a recipe, set how much chicken you bought, and tap <strong className="text-ink">Add to list</strong>.
-          Add a few and everything gets combined here.
+          Open a recipe or seasoning blend, set how much chicken you bought, and tap{" "}
+          <strong className="text-ink">Add to list</strong>. Add a few and everything gets combined here.
         </p>
         <Link
           href="/#recipes"
@@ -98,7 +105,7 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
   const allKeys = [...shopping.sections.flatMap((s) => s.lines), ...shopping.extras].map((l) => l.key);
   const doneCount = allKeys.filter((k) => tickedSet.has(k)).length;
   const toggle = (key: string) => setTicked(tickedSet.has(key) ? ticked.filter((k) => k !== key) : [...ticked, key]);
-  const totalChicken = entries.reduce((sum, e) => sum + e.grams, 0);
+  const totalChicken = entries.reduce((sum, e) => sum + ("jar" in e && e.jar ? 0 : e.grams), 0);
 
   const copy = async () => {
     try {
@@ -117,12 +124,12 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
       <aside className="lg:sticky lg:top-6 lg:max-h-[calc(100dvh-3rem)] lg:self-start lg:overflow-y-auto lg:rounded-3xl">
         <div className="rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
           <div className="flex items-baseline justify-between gap-3">
-            <h2 className="font-display text-2xl font-semibold">Recipes</h2>
+            <h2 className="font-display text-2xl font-semibold">On your list</h2>
             <p className="text-sm text-muted tabular-nums">{totalChicken}g chicken in total</p>
           </div>
 
           <ul className="mt-4 divide-y divide-line">
-            {entries.map(({ recipe, grams }) => (
+            {recipeEntries.map(({ recipe, grams }) => (
               <li key={recipe.slug} className="py-4 first:pt-0">
                 <div className="mb-3 flex items-start gap-3">
                   <span className="grid size-7 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-bold text-accent tabular-nums">
@@ -152,14 +159,59 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
                 />
               </li>
             ))}
+            {blendEntries.map(({ blend, usage: u, grams, jar }) => {
+              const key = blendKey(blend.slug);
+              return (
+                <li key={key} className="py-4 first:pt-0">
+                  <div className="mb-3 flex items-start gap-3">
+                    <span aria-hidden className="grid size-7 shrink-0 place-items-center rounded-full bg-herb-soft text-xs text-herb">
+                      ✦
+                    </span>
+                    <div className="min-w-0 flex-1 pt-0.5 leading-snug">
+                      <Link href={`/seasonings#${blend.slug}`} className="font-medium hover:text-accent">
+                        {blend.name} blend
+                      </Link>
+                      <p className="text-sm text-muted">
+                        {jar ? "Month jar (×4), spices only" : `With chicken, oil and wet extras · ${u.label}`}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => list.remove(key)}
+                      aria-label={`Remove ${blend.name} blend`}
+                      className="-mt-1 grid size-9 shrink-0 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-accent"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  {!jar && (
+                    <GramsControl
+                      value={grams}
+                      onChange={(g) => list.set(key, g)}
+                      presets={[]}
+                      label="Chicken"
+                      compact
+                    />
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
-          <Link
-            href="/#recipes"
-            className="mt-1 flex h-11 items-center justify-center rounded-full border border-dashed border-line text-sm font-medium text-muted transition hover:border-accent hover:text-accent"
-          >
-            ＋ Add another recipe
-          </Link>
+          <div className="mt-1 flex gap-2">
+            {[
+              { href: "/#recipes", label: "＋ Add a recipe" },
+              { href: "/seasonings", label: "＋ Add a blend" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="flex h-11 flex-1 items-center justify-center rounded-full border border-dashed border-line text-sm font-medium text-muted transition hover:border-accent hover:text-accent"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
 
           <div className="mt-4 flex gap-2">
             <button type="button" onClick={copy} className={actionBtn}>
@@ -186,7 +238,7 @@ export function ShoppingListView({ recipes }: { recipes: Recipe[] }) {
           <div>
             <h2 className="font-display text-2xl font-semibold">Shopping list</h2>
             <p className="text-sm text-muted tabular-nums">
-              {doneCount} of {allKeys.length} ticked · numbers show which recipe uses it
+              {doneCount} of {allKeys.length} ticked · tags show which recipe or blend uses it
             </p>
           </div>
           {doneCount > 0 && (
