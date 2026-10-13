@@ -48,17 +48,17 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 ## Peri-peri
 *Replaces the Bramwells peri-peri packets.*
 
-- 1 tbsp smoked paprika
-- 1 tbsp sweet paprika
+- 1½ tbsp paprika (plain paprika is sweet paprika)
+- 1 tsp smoked paprika
 - 2 tsp garlic granules
 - 1 tsp onion powder
-- 1–2 tsp chilli powder or cayenne (1 = mild, 2 = hot)
+- ½–1½ tsp chilli powder or cayenne (½ = mild, 1½ = hot)
 - 1 tsp dried oregano
 - 2 tsp salt
-- 1 tsp sugar
+- 2 tsp sugar
 - ½ tsp black pepper
 
-**Wet:** oil + juice of ½ lemon per 600g chicken. Don't skip the lemon; it gives the tangy peri-peri flavour.
+**Wet:** oil + zest and juice of 1 lemon per 600g chicken + 1 tbsp vinegar if you have it (any kind; plain white works, malt is stronger so use 2 tsp). Keep a wedge back and squeeze it over after cooking; the heat dulls the lemon, so the fresh squeeze is what makes it tangy.
 
 **Air fryer:** 200°C · diced breast 12–15 min · thighs 18–22 min
 
