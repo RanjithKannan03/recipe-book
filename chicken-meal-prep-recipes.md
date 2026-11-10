@@ -804,6 +804,12 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - **Freezer:** freeze wrapped sandwiches for up to 2 months. Put the wrapped sandwiches in a freezer bag, squeeze the air out and write the date on it so the bread doesn't dry out. Don't refreeze.
 - **Weekly plan:** keep 2 in the fridge for the first 2 days and freeze the rest. Each night, move one from the freezer to the fridge; it's thawed by lunch, then toast as in step 10.
 - **Don't toast before storing:** a toasted sandwich goes soggy in the fridge and dries out when toasted again.
+- **Reheat a wrapped sandwich (from the fridge, or thawed overnight):** unwrap and air fry at 180°C for 6–8 minutes, turning halfway, until the bread is crisp, the cheese has melted and the chicken is steaming hot in the middle. Put something light and oven-safe on top so the top slice doesn't blow off.
+- **Reheat from frozen (forgot to thaw it):** unwrap and air fry at 160°C for 12–15 minutes, turning halfway, so the middle heats through before the bread burns, then 2 minutes at 180°C to crisp. Check the chicken in the middle is steaming hot.
+- **Or store the chicken on its own:** keep the cooked, sliced chicken in an airtight box (2 days in the fridge, 3 months in the freezer). Reheat it at 180°C for 3–4 minutes (6–8 from frozen) until steaming hot, then build the sandwich and toast it for 3–4 minutes just to crisp the bread and melt the cheese.
+- **Microwave the chicken:** put the sliced chicken on a plate, sprinkle with a little water and cover loosely. Heat on high for 1–1½ minutes from the fridge, stirring halfway, or defrost for 3–4 minutes then high for 1–1½ minutes from frozen. Leave for 1 minute, check it's steaming hot in the middle, then build and toast the sandwich. Times are for an 800W microwave: a little less at 1000W, a little more at 700W.
+- **Microwave the whole sandwich (if you must):** 45–60 seconds on high from the fridge, then 3–4 minutes in the air fryer at 180°C to crisp the bread. Microwaving on its own makes the bread chewy.
+- Reheat chicken only once.
 - Keep the pickled onions in a sealed tub in the fridge for up to 5 days, and add them after toasting so the bread stays crisp.
 - Honey butter keeps about 2 weeks in the fridge; let it soften before spreading.
 
@@ -959,7 +965,9 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - **4. Buns (cupboard or freezer):** in their own bag at room temperature, or freeze them and toast from frozen for 2–3 minutes.
 - **5. Lettuce (fridge):** washed, dried and in a box lined with kitchen paper so it stays crisp.
 - **Weekly plan:** keep 2 burgers' worth of chicken in the fridge and freeze the rest. Each night, move one portion from the freezer to the fridge.
-- **On the day:** reheat the chicken at 180°C for 5–6 minutes (8–10 from frozen) until piping hot, spoon on the glaze, toast the bun for 1–2 minutes, then spread with sauce and add lettuce and chicken. Reheat only once.
+- **Reheat the cooked chicken:** lay the unglazed fillets in a single layer in the air fryer, spray lightly with oil and heat at 180°C for 5–6 minutes from the fridge or 8–10 minutes from frozen (no need to thaw), turning halfway, until steaming hot in the middle and crisp outside.
+- **Microwave:** put one burger's fillets on a plate, uncovered, and heat on high for 1½–2 minutes from the fridge, turning halfway, or defrost for 3–4 minutes then high for 1½–2 minutes from frozen. Leave for 1 minute and check it's steaming hot in the middle. The crust goes soft, so if you can, finish with 2–3 minutes in the air fryer at 200°C to crisp it back up. Times are for an 800W microwave: a little less at 1000W, a little more at 700W.
+- **On the day:** reheat the chicken, spoon on the glaze while it's hot, toast the bun for 1–2 minutes, then spread with sauce and add lettuce and chicken. Reheat only once.
 - **Freeze it raw instead:** freeze breaded, uncooked fillets flat on a tray, then bag them. Cook from frozen at 200°C for 18–20 minutes, turning halfway, until 75°C in the thickest part. This gives the crispiest result for later in the week.
 
 ---
@@ -1032,7 +1040,10 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 
 ### Storage
 - **Store unassembled,** in separate containers: cooked chicken, peri-peri mayo, buns, and lettuce, tomato and onion. Build each burger on the day.
-- **Cooked chicken:** cool, then fridge in an airtight box within 2 hours and eat within 2 days, or wrap each portion in foil, bag, date and freeze for up to 3 months. Reheat at 180°C for 5–6 minutes (8–10 from frozen) until piping hot. Reheat only once.
+- **Cooked chicken:** cool, then fridge in an airtight box within 2 hours and eat within 2 days, or wrap each portion in foil, bag, date and freeze for up to 3 months.
+- **Reheat the cooked chicken:** breast dries out easily, so sprinkle it with a little water or lemon juice and wrap it loosely in foil. Air fry at 180°C for 5–6 minutes from the fridge or 10–12 minutes from frozen (no need to thaw), then unwrap for the last 1–2 minutes to crisp the edges. It's ready when it's steaming hot in the middle. Reheat only once.
+- **Microwave:** put the breast on a plate, sprinkle with a little water or lemon juice and cover loosely so it doesn't dry out. Heat on high for 1½–2 minutes from the fridge, turning halfway, or defrost for 4–5 minutes then high for 1½–2 minutes from frozen. Leave for 1 minute and check it's steaming hot in the middle; slicing it first helps it heat evenly. Times are for an 800W microwave: a little less at 1000W, a little more at 700W.
+- **On the day:** reheat the chicken, toast the bun for 1–2 minutes, then add the sauce, lettuce, chicken, tomato and onion, and squeeze over fresh lemon.
 - **Freeze it raw:** bag the raw chicken in its marinade, flatten and freeze. It finishes marinating as it thaws overnight in the fridge; then air fry.
 - **Peri-peri mayo or yoghurt sauce:** sealed tub in the fridge for up to 3 days; don't freeze it.
 - **Buns:** in their bag at room temperature, or frozen and toasted from frozen for 2–3 minutes.
@@ -1105,7 +1116,10 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 ### Storage
 - **Store unassembled,** in separate containers: patties, burger sauce, buns, and lettuce, tomato and onion. Build each burger on the day.
 - **Raw patties:** shape them, layer with baking paper, and fridge for up to 1 day or freeze flat for up to 3 months. Cook from frozen at 200°C for 12–14 minutes, flipping halfway, until 75°C in the middle.
-- **Cooked patties:** cool, then fridge in an airtight box within 2 hours and eat within 2 days, or freeze for up to 3 months. Reheat at 180°C for 4–5 minutes (8–10 from frozen) until piping hot, then add the cheese for the last minute. Reheat only once.
+- **Cooked patties:** cool, then fridge in an airtight box within 2 hours and eat within 2 days, or freeze for up to 3 months with baking paper between them. Store them without cheese.
+- **Reheat the cooked patties:** air fry at 180°C for 4–5 minutes from the fridge or 8–10 minutes from frozen (no need to thaw), flipping halfway, until steaming hot all the way through. Add the cheese for the last minute. If they look dry, wrap them loosely in foil for the first few minutes. Reheat only once.
+- **Microwave:** put a patty on a plate, cover loosely and heat on high for 1–1½ minutes from the fridge, turning halfway, or defrost for 2–3 minutes then high for 1–1½ minutes from frozen. Add the cheese for the last 15–20 seconds. Leave for 1 minute and check it's steaming hot all the way through. Times are for an 800W microwave: a little less at 1000W, a little more at 700W.
+- **On the day:** reheat the patties, toast the bun for 1–2 minutes, then add sauce, lettuce, the cheesy patty, tomato and onion.
 - **Burger sauce:** sealed tub in the fridge for up to 3 days; don't freeze it.
 - **Buns:** in their bag at room temperature, or frozen and toasted from frozen for 2–3 minutes.
 
