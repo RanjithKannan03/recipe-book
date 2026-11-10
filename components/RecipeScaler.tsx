@@ -6,6 +6,7 @@ import { formatFactor, scaleIngredient, scaleStep, servings } from "@/lib/scale"
 import { AddToListButton } from "./AddToListButton";
 import { GramsControl } from "./GramsControl";
 import { IngredientList } from "./IngredientList";
+import { NutritionCard } from "./NutritionCard";
 import { Inline } from "./Inline";
 import { Callout } from "./ui";
 import { useStoredState } from "./useStoredState";
@@ -43,10 +44,20 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
     });
 
   const serve = servings(recipe, grams);
+  // Recipes whose base weight is mince rather than chicken ("450g lean beef mince").
+  const meatLine = recipe.groups.flatMap((g) => g.items).find((i) => i.kind === "chicken");
+  const meatLabel = meatLine?.kind === "chicken" && /mince/i.test(meatLine.rest) ? "Mince you bought" : undefined;
 
   const control = (compact: boolean) => (
     <div className={compact ? "space-y-2" : "space-y-3"}>
-      <GramsControl value={grams} onChange={setGrams} presets={presets} badge={formatFactor(factor)} compact={compact} />
+      <GramsControl
+        value={grams}
+        onChange={setGrams}
+        presets={presets}
+        badge={formatFactor(factor)}
+        compact={compact}
+        label={meatLabel}
+      />
       {serve && (
         <p
           aria-live="polite"
@@ -58,7 +69,7 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
             Makes {serve.count} {serve.label}
           </span>
           <span className="text-ink/70 tabular-nums">
-            · about {serve.each}g chicken each{serve.pieces ? ` (${serve.pieces})` : ""}
+            · about {serve.each}g {serve.meat} each{serve.pieces ? ` (${serve.pieces})` : ""}
           </span>
         </p>
       )}
@@ -134,8 +145,12 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
             ))}
           </ol>
 
+          <div className="mt-10">
+            <NutritionCard recipe={recipe} grams={grams} />
+          </div>
+
           {recipe.sections.length > 0 && (
-            <div className="mt-10 space-y-4">
+            <div className="mt-4 space-y-4">
               {recipe.sections.map((sec) => (
                 <section key={sec.title} className="rounded-3xl border border-line bg-surface p-5 shadow-card sm:p-6">
                   <h2 className="flex items-center gap-2 font-display text-xl font-semibold">

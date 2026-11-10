@@ -41,7 +41,7 @@ export function parseNumber(token: string): number {
   return (m[1] ? parseFloat(m[1]) : 0) + (m[2] ? FRACTIONS[m[2]] : 0);
 }
 
-const BREAD = /\b(pitta|tortilla|lavash)\b/i;
+const BREAD = /\b(pitta|tortilla|lavash|bun)s?\b/i;
 
 export function parseIngredient(line: string): Ingredient {
   const m = line.match(LEADING);
@@ -52,7 +52,8 @@ export function parseIngredient(line: string): Ingredient {
   const min = parseNumber(a);
   const max = b ? parseNumber(b) : undefined;
 
-  if (unit === "g" && /chicken/i.test(rest) && !/sauce|dip/i.test(rest)) {
+  // The main meat line ("900g chicken breast", "450g lean beef mince") sets the base weight.
+  if (unit === "g" && /chicken|mince/i.test(rest) && !/sauce|dip/i.test(rest)) {
     // Drop imperial conversions like "(2 lb)"; the page shows the chosen grams instead.
     return { kind: "chicken", min, max, unit, rest: rest.replace(/^\([^)]*lb\)\s*/, "") };
   }

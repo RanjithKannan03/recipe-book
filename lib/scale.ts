@@ -79,6 +79,8 @@ const half = (x: number) => Math.max(0.5, Math.round(x * 2) / 2);
 const pairs = (x: number) => Math.max(2, Math.ceil(x / 2 - 0.05) * 2);
 
 const COUNT_RULES: CountRule[] = [
+  // One cheese slice per taco/burger: whole, rounded up. Listed before the sandwich "slices" pairs rule.
+  { noun: /\bcheese slices?\b/, one: "cheese slice", many: "cheese slices", round: (x) => Math.max(1, Math.ceil(x - 0.05)) },
   { noun: /\bslices?\b/, one: "slice", many: "slices", round: pairs },
   { noun: /\beggs?\b/, one: "egg", many: "eggs", round: whole },
   { noun: /\bcloves?\b/, one: "clove", many: "cloves", round: whole },
@@ -198,8 +200,10 @@ export function servings(recipe: Recipe, grams: number) {
   const each = Math.round(grams / count / 5) * 5;
 
   let pieces: string | undefined;
+  let meat = "chicken";
   const chicken = recipe.groups.flatMap((g) => g.items).find((i) => i.kind === "chicken");
   if (chicken && chicken.kind === "chicken") {
+    if (/mince/i.test(chicken.rest)) meat = "mince";
     const about = chicken.rest.match(/\(about (\d+)\)/);
     const noun = chicken.rest.match(/chicken (\w+)/)?.[1];
     if (about && noun) {
@@ -208,7 +212,7 @@ export function servings(recipe: Recipe, grams: number) {
       pieces = `${kitchen(per, [0.5])} ${word}`;
     }
   }
-  return { count, label, each, pieces };
+  return { count, label, each, pieces, meat };
 }
 
 /**

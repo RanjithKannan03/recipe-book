@@ -9,6 +9,13 @@ import { useStoredState } from "./useStoredState";
 
 const PRESETS = [300, 500, 600, 750, 900, 1000, 1200, 1500, 2000];
 
+/** A single meal: thighs are about 110g each (8 in a 900g pack), tenderloins about 60g. */
+const MEALS: { label: string; grams: number; cut: RegExp }[] = [
+  { label: "2 thighs", grams: 225, cut: /thigh/i },
+  { label: "2 tenderloins", grams: 120, cut: /breast/i },
+  { label: "3 tenderloins", grams: 180, cut: /breast/i },
+];
+
 /** Formats a number of tablespoons using the same kitchen rounding as the recipes. */
 function spoons(tbsp: number): string {
   return scaleIngredient({ kind: "measure", min: tbsp, unit: "tbsp", rest: "" }, 1).amount;
@@ -68,6 +75,34 @@ export function SeasoningsPlanner({ guide, blends }: { guide: BlendGuide; blends
             onChange={setCut}
           />
           <GramsControl value={grams} onChange={setGrams} presets={PRESETS} />
+          <div>
+            <p className="mb-2 text-sm font-medium">One meal</p>
+            <div className="flex flex-wrap gap-1.5">
+              {MEALS.map((m) => {
+                const index = guide.usage.findIndex((u) => m.cut.test(u.label));
+                const active = grams === m.grams && cut === index;
+                return (
+                  <button
+                    key={m.label}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => {
+                      if (index >= 0) setCut(index);
+                      setGrams(m.grams);
+                      setJar(false);
+                    }}
+                    className={`h-9 rounded-full px-3.5 text-sm font-medium transition ${
+                      active
+                        ? "bg-accent text-accent-ink"
+                        : "border border-line bg-surface text-muted hover:border-accent hover:text-ink"
+                    }`}
+                  >
+                    {m.label} <span className="tabular-nums opacity-70">· {m.grams}g</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
           <Segmented
             label="How much blend to mix"
             options={[

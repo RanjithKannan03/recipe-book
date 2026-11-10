@@ -15,6 +15,8 @@
 6. [Chicken shawarma wrap](#6-chicken-shawarma-wrap)
 7. [Crispy chicken lavash wrap](#7-crispy-chicken-lavash-wrap)
 8. [Honey butter chicken sandwich](#8-honey-butter-chicken-sandwich)
+9. [Smash burger tacos](#9-smash-burger-tacos)
+10. [Honey glazed chicken burgers](#10-honey-glazed-chicken-burgers)
 
 ---
 
@@ -735,6 +737,128 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - **Don't toast before storing:** a toasted sandwich goes soggy in the fridge and dries out when toasted again.
 - Keep the pickled onions in a sealed tub in the fridge for up to 5 days, and add them after toasting so the bread stays crisp.
 - Honey butter keeps about 2 weeks in the fridge; let it soften before spreading.
+
+---
+
+## 9. Smash burger tacos
+*Thin beef mince pressed onto a tortilla and air fried until browned and crisp, with cheese, burger sauce and lettuce. About 365 calories and 29g protein each.*
+
+**Makes:** 4 tacos
+
+**Air fryer:** 200°C · 6–8 min, then 1 min with cheese · beef-side up, no flipping
+
+### Tacos
+- 450g (1 lb) lean beef mince, 5% fat (or chicken mince)
+- 4 small flour tortillas
+- 4 cheese slices (light slices for fewer calories)
+- 4 tbsp burger sauce (shop-bought, or homemade, see Swaps)
+- Shredded lettuce
+- Salt and pepper, to taste
+
+### Method
+1. **Press the mince on thin.** Divide the mince between the tortillas (about 110g each) and spread it right to the edges with your fingers or the back of a spoon, about as thick as a £1 coin. Thin is what makes it brown and cook through. Season with salt and pepper.
+2. **Air fry beef-side up** at 200°C for 6–8 minutes, 1–2 at a time depending on the basket, until the mince is browned with no pink left (75°C in the middle, or cooked all the way through with clear juices). Don't flip: the heat from the top browns the beef while the tortilla crisps underneath. No preheat needed; the beef weighs the tortilla down so it doesn't blow around.
+3. **Melt the cheese:** lay a slice on each and air fry for 1 more minute.
+4. **Finish:** add 1 tbsp burger sauce and a handful of lettuce to each, fold and eat straight away.
+
+### Kit
+- A plate or board to press the mince onto the tortillas, and a spoon to spread it.
+- Tongs or a spatula to lift the tacos out of the basket.
+
+### Swaps
+- **Homemade burger sauce (about 4 tbsp):** 2 tbsp light mayo, 1 tbsp ketchup, 1 tsp mustard and a chopped gherkin.
+- **Chicken mince:** same method, cooked to 75°C. It's leaner and paler, so add ½ tsp smoked paprika with the salt and pepper for colour.
+- **Lighter:** light cheese slices and only 1 tbsp sauce per taco.
+
+### Tips
+- **As a snack:** 1 taco, about 365 calories and 29g protein. It's a big snack, so it fits best after training or on a busy day.
+- **As a main:** 2 tacos with a big handful of salad or a portion of frozen veg, about 730 calories and 58g protein. Three is too much for a regular meal unless it's a big training day.
+- If the tortilla edges brown too fast, drop to 190°C and add a minute.
+- You won't get the smashed crust a pan gives on the beef; the air fryer browns the top instead and makes the tortilla crunchier.
+- 92/8 mince in the original is about the same as UK 5% fat steak mince. A 500g pack makes 4–5 tacos.
+
+### Storage
+- **Best fresh:** the tortilla goes soft once the beef is cooked on it, so make these to order. They take about 10 minutes.
+- **Raw mince:** keep in the fridge and use by its date, or freeze in 110g portions for up to 3 months and thaw overnight in the fridge.
+- **Leftover cooked tacos:** fridge within 2 hours and eat within 1–2 days. Reheat at 180°C for 3–4 minutes until piping hot, then add the sauce and lettuce. Reheat only once.
+
+---
+
+## 10. Honey glazed chicken burgers
+*Thin breast fillets in a crushed cornflake crust, air fried and brushed with honey glaze, in a toasted bun with burger sauce.*
+
+**Makes:** 4 burgers
+
+**Air fryer:** 200°C · 12–15 min · spray with oil, turn and spray halfway
+
+### Chicken
+- 680g chicken breasts (about 4), 1 per burger
+- 2 tsp paprika
+- 2 tsp garlic powder
+- 1 tsp onion powder
+- 1 tsp salt
+- 1 tsp black pepper
+
+### Breading
+- 100g plain flour
+- 2 eggs, beaten
+- 200g cornflakes, crushed
+- Cooking oil spray
+
+### Honey glaze
+- 4 tbsp honey
+- 1½ tbsp butter
+- 1 tsp paprika
+- ½ tsp garlic powder
+- 1 tbsp sriracha (optional)
+
+### Burger sauce
+- 4 tbsp mayonnaise
+- 2 tbsp Greek yoghurt
+- 1 tbsp sweet chilli sauce
+- 1 tsp lemon juice (or lime)
+
+### To assemble
+- 4 burger buns
+- Lettuce
+
+### Method
+1. **Slice the breasts.** Lay each breast flat on the plate (damp towel underneath), put your hand flat on top and slice through sideways into 2 thin fillets. If one end is much thicker, put it in a food bag and press it flat with your fist or the bottom of a mug so it cooks evenly.
+2. **Season** the fillets on both sides with {2 tsp} paprika, {2 tsp} garlic powder, {1 tsp} onion powder, {1 tsp} salt and {1 tsp} black pepper.
+3. **Crush the cornflakes** in a food bag with your fist or a mug until they're small crumbs with a few bigger flakes.
+4. **Bread:** coat each fillet in flour, then beaten egg, then cornflakes, pressing the crumbs on firmly. Use one small bowl each for the flour, egg and cornflakes, or shake the fillets in the flour in a food bag to save a bowl. Rest for 10 minutes so the coating sets.
+5. **Air fry** at 200°C for 12–15 minutes in a single layer, sprayed with oil, turning and spraying halfway, until golden and 75°C in the thickest part (white all the way through). Cook in batches so the fillets don't overlap.
+6. **Glaze:** in a small bowl, microwave {4 tbsp} honey and {1½ tbsp} butter for about 20 seconds until melted, then stir in {1 tsp} paprika, {½ tsp} garlic powder and the sriracha. Brush over the hot chicken.
+7. **Burger sauce:** mix {4 tbsp} mayonnaise, {2 tbsp} Greek yoghurt, {1 tbsp} sweet chilli sauce and {1 tsp} lemon juice until smooth.
+8. **Assemble:** toast the buns in the air fryer at 180°C for 1–2 minutes, spread with burger sauce, add lettuce and both glazed fillets. Eat straight away.
+
+### Kit
+- 1 sharp knife and a plate, with a damp tea towel or kitchen roll underneath so it doesn't slide.
+- 3 small bowls: flour, egg and cornflakes for breading; wash one for the glaze.
+- 2 food bags: one to crush the cornflakes, one to flatten thick fillets or shake them in flour.
+- A fork to beat the egg and mix the sauce, and a spoon or pastry brush for the glaze.
+- Meat thermometer (optional), to check 75°C.
+
+### Swaps
+- **Lazy glaze:** drizzle honey straight over the hot chicken with a squeeze of sriracha, or use shop-bought hot honey, sweet chilli sauce or BBQ sauce.
+- **Glaze without butter:** warm the honey on its own with 1 tsp hot water so it brushes on easily, or use light spread or 1 tsp oil.
+- **Lazy burger sauce:** shop-bought burger sauce, light mayo with a squeeze of sweet chilli, or mayo mixed with ketchup.
+- **Lighter burger sauce:** use light mayo, or skip the mayo and use 6 tbsp 0% Greek yoghurt (lowest calorie and adds protein).
+- **No sweet chilli:** ½ tbsp honey and a few drops of sriracha.
+- **No lemon or lime:** a splash of vinegar.
+- **No slicing:** use mini fillets (tenderloins) instead of breasts, 3 per burger.
+
+### Tips
+- One breast (about 170g) per burger is about the same chicken as 2 thighs or 3 tenderloins. The original recipe uses half a breast per burger, which is small.
+- Press the cornflakes on firmly and let the coating rest; it stays on better when you turn the fillets.
+- Keep one hand for the flour and cornflakes and the other for the egg, so your fingers don't get clumpy.
+- Glaze just before eating; the honey softens the crust if it sits.
+
+### Storage
+- **Best fresh:** the crust is crispiest straight from the air fryer.
+- **Cooked fillets:** cool, then fridge (unglazed) in an airtight box within 2 hours and eat within 2 days, or freeze for up to 3 months. Reheat at 180°C for 5–6 minutes (8–10 from frozen) until piping hot, then glaze. Reheat only once.
+- **Freeze it raw:** freeze breaded, uncooked fillets flat on a tray, then bag them. Cook from frozen at 200°C for 18–20 minutes, turning halfway, until 75°C in the thickest part.
+- Keep the burger sauce in the fridge and use within 3 days; don't freeze it.
 
 ---
 
