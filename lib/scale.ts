@@ -1,7 +1,7 @@
 // Scales parsed ingredients by a factor and formats them the way a cook would write them:
 // kitchen fractions for spoons/cups, round grams, whole breads, and singular/plural nouns.
 
-import type { Blend, Usage } from "./parse";
+import type { Blend, Recipe, Usage } from "./parse";
 import { CITRUS, parseNumber, type Ingredient, type Unit } from "./quantity";
 
 export type ScaledIngredient = {
@@ -75,7 +75,11 @@ type CountRule = { noun: RegExp; one: string; many: string; round: (x: number) =
 const whole = (x: number) => Math.max(1, Math.round(x));
 const half = (x: number) => Math.max(0.5, Math.round(x * 2) / 2);
 
+// Sandwich slices (bread, cheese) come in pairs, rounded up so every sandwich gets two.
+const pairs = (x: number) => Math.max(2, Math.ceil(x / 2 - 0.05) * 2);
+
 const COUNT_RULES: CountRule[] = [
+  { noun: /\bslices?\b/, one: "slice", many: "slices", round: pairs },
   { noun: /\beggs?\b/, one: "egg", many: "eggs", round: whole },
   { noun: /\bcloves?\b/, one: "clove", many: "cloves", round: whole },
   { noun: /\bsprays?\b/, one: "spray", many: "sprays", round: whole },
@@ -179,4 +183,30 @@ export function blendAmounts(usage: Usage, grams: number) {
 /** What to multiply a blend recipe by so it makes `blendTbsp`, or ×4 for a month jar. */
 export function blendFactor(blend: Blend, blendTbsp: number, jar: boolean): number {
   return jar ? 4 : (blendTbsp * 3) / blend.totalTsp;
+}
+
+/**
+ * How many servings a weight of chicken makes, from the recipe's "**Makes:**" line, plus the chicken in each.
+ * Rounded up like sandwich slices, so a part serving still gets bread. Pieces come from "(about 8)" on the
+ * chicken line, e.g. "about 2 thighs each".
+ */
+export function servings(recipe: Recipe, grams: number) {
+  if (!recipe.makes) return null;
+  const factor = grams / recipe.baseGrams;
+  const count = Math.max(1, Math.ceil(recipe.makes.count * factor - 0.05));
+  const label = count === 1 ? recipe.makes.one : recipe.makes.many;
+  const each = Math.round(grams / count / 5) * 5;
+
+  let pieces: string | undefined;
+  const chicken = recipe.groups.flatMap((g) => g.items).find((i) => i.kind === "chicken");
+  if (chicken && chicken.kind === "chicken") {
+    const about = chicken.rest.match(/\(about (\d+)\)/);
+    const noun = chicken.rest.match(/chicken (\w+)/)?.[1];
+    if (about && noun) {
+      const per = Math.max(0.5, Math.round(((Number(about[1]) * factor) / count) * 2) / 2);
+      const word = per > 1 ? noun : noun.replace(/(ch|sh|x)es$/, "$1").replace(/([^s])s$/, "$1");
+      pieces = `${kitchen(per, [0.5])} ${word}`;
+    }
+  }
+  return { count, label, each, pieces };
 }

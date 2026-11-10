@@ -20,12 +20,23 @@ function parseAirFryer(line: string): AirFryer | null {
   return { temp: temp.trim(), details };
 }
 
+/** From "**Makes:** 4 sandwiches": how many servings the base weight of chicken makes. */
+export type Makes = { count: number; one: string; many: string };
+
+function parseMakes(line: string): Makes | null {
+  const m = line.match(/^\*\*Makes:\*\*\s*(\d+)\s+(.+)$/);
+  if (!m) return null;
+  const many = m[2].trim();
+  return { count: Number(m[1]), many, one: many.replace(/(ch|sh|x)es$/, "$1").replace(/([^s])s$/, "$1") };
+}
+
 export type Recipe = {
   slug: string;
   number: number;
   title: string;
   tagline?: string;
   airFryer?: AirFryer;
+  makes?: Makes;
   baseGrams: number;
   groups: Group[];
   steps: string[];
@@ -225,9 +236,12 @@ export function getCookbook(): Cookbook {
     const step = line.match(/^\d+\.\s+(.*)$/);
     const italic = trimmed.match(/^\*([^*].*)\*$/);
     const air = parseAirFryer(trimmed);
+    const makes = parseMakes(trimmed);
 
     if (air && !recipe.airFryer) {
       recipe.airFryer = air;
+    } else if (makes && !recipe.makes) {
+      recipe.makes = makes;
     } else if (bullet && tips) {
       tips.items.push(bullet[1]);
     } else if (bullet && group) {

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Recipe } from "@/lib/parse";
-import { formatFactor, scaleIngredient } from "@/lib/scale";
+import { formatFactor, scaleIngredient, servings } from "@/lib/scale";
 import { AddToListButton } from "./AddToListButton";
 import { GramsControl } from "./GramsControl";
 import { IngredientList } from "./IngredientList";
@@ -42,8 +42,27 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
       return next;
     });
 
+  const serve = servings(recipe, grams);
+
   const control = (compact: boolean) => (
-    <GramsControl value={grams} onChange={setGrams} presets={presets} badge={formatFactor(factor)} compact={compact} />
+    <div className={compact ? "space-y-2" : "space-y-3"}>
+      <GramsControl value={grams} onChange={setGrams} presets={presets} badge={formatFactor(factor)} compact={compact} />
+      {serve && (
+        <p
+          aria-live="polite"
+          className={`flex flex-wrap items-baseline gap-x-2 rounded-2xl bg-accent-soft px-4 text-accent ${
+            compact ? "py-1.5 text-sm" : "py-2.5"
+          }`}
+        >
+          <span className="font-display font-semibold tabular-nums">
+            Makes {serve.count} {serve.label}
+          </span>
+          <span className="text-ink/70 tabular-nums">
+            · about {serve.each}g chicken each{serve.pieces ? ` (${serve.pieces})` : ""}
+          </span>
+        </p>
+      )}
+    </div>
   );
 
   return (

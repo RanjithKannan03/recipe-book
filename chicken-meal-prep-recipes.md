@@ -14,6 +14,7 @@
 5. [Chicken shawarma with pomegranate glaze](#5-chicken-shawarma-with-pomegranate-glaze)
 6. [Chicken shawarma wrap](#6-chicken-shawarma-wrap)
 7. [Crispy chicken lavash wrap](#7-crispy-chicken-lavash-wrap)
+8. [Honey butter chicken sandwich](#8-honey-butter-chicken-sandwich)
 
 ---
 
@@ -655,6 +656,83 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - Keep the garlic sauce in the fridge and use within 3 days; don't freeze it.
 - Keep the lettuce dry in a box lined with kitchen paper so it stays crisp.
 - **Don't store assembled wraps:** the bread goes soggy. Pack the chicken, onions and salad separately and roll on the day.
+
+---
+
+## 8. Honey butter chicken sandwich
+*Seasoned thighs, honey butter, provolone and quick pickled red onions. Prep a week of lunches, toast on the day.*
+
+**Makes:** 4 sandwiches
+
+**Air fryer:** 200°C · whole thighs 12–18 min, strips 10–12 min · sandwiches 180°C 6–8 min
+
+### Chicken
+- 900g boneless, skinless chicken thighs (about 8), 2 per sandwich
+- 1½ tsp salt
+- 1 tsp black pepper
+- 2 tsp paprika
+- 2 tsp garlic powder
+- 1 tbsp oil
+
+### Honey butter
+- 6 tbsp light spreadable butter, softened
+- 3 tbsp honey
+- 1 tbsp fresh parsley, chopped (or 1 tsp dried, optional)
+
+### Pickled red onions
+- ½ red onion, thinly sliced
+- 1 tbsp apple cider vinegar (or white wine vinegar or lemon juice)
+- 1 tsp honey
+- Pinch of salt
+
+### To assemble
+- 8 slices sourdough or panini bread
+- 8 slices thin-cut provolone
+- Spinach or rocket (optional)
+- Frozen mixed veg, to serve on the side
+
+### Method
+1. **Onions first, on the clean plate.** Cut the top off the onion, leaving the root on, then halve it from top to root and peel. Lay each half flat-side down and slice across as thinly as you can. Put the slices in a small bowl with the vinegar, honey and salt, stir and leave for at least 15–20 minutes.
+2. **Parsley, if fresh.** Bunch the leaves tight on the plate and slice through a few times. Set aside.
+3. **Honey butter.** In a small bowl, mash the softened butter with a fork, add the honey a spoonful at a time and keep mashing until smooth. Stir in the parsley.
+4. **Spice mix.** In another small bowl, stir together the salt, pepper, paprika and garlic powder.
+5. **Season the chicken on the plate in batches.** For faster cooking, first cut each thigh into 3–4 strips on the plate (you slice it later anyway). Lay 3–4 thighs' worth on the plate, sprinkle with some of the spice mix and a little oil, rub in, flip and repeat, then put them straight into the air fryer basket. Take the spice mix with a clean spoon so raw chicken never touches the bowl. Or skip the plate: tip the chicken, spice mix and oil into a food bag, seal and squish for a minute. The bag can sit in the fridge overnight, so on prep day it goes straight into the air fryer.
+6. **Air fry** at 200°C (preheated for 3 minutes) until 75°C in the thickest part, or white all the way through with clear juices. **Whole thighs:** 12–18 minutes, 3–4 at a time in a single layer, turned halfway (if they overlap, add 3–5 minutes and swap top and bottom halfway). **Strips:** 10–12 minutes, shaking the basket halfway; a loose pile is fine, so about twice as much fits per batch. While the first batch cooks, make the onions and honey butter (steps 1–3) if you haven't already.
+7. **Wash the plate** in hot soapy water. Rest the cooked chicken on it for 5 minutes, then slice. Let it cool completely before assembling.
+8. **Assemble:** spread honey butter on the inside of both slices of bread, then add the provolone and sliced chicken. Don't toast yet.
+9. **Wrap** each sandwich tightly in foil or cling film. Keep the onions in their own tub.
+10. **On the day:** unwrap and air fry at 180°C for 6–8 minutes, turning halfway, until crisp, melted and hot through (a minute or two longer straight from the fridge). Put something light and oven-safe on top so the top slice doesn't blow off. Open up, add the onions and any spinach or rocket, and eat with the veg.
+
+### Kit
+- 1 sharp knife and a steel plate, with a damp tea towel or kitchen roll underneath so it doesn't slide.
+- 3 small bowls: onions, honey butter, spice mix.
+- 1 fork (honey butter) and 1 spoon (spice mix).
+- Food bags (optional), to season all the chicken at once instead of on the plate.
+- Foil or cling film and a small tub for the onions.
+- Meat thermometer (optional), to check 75°C.
+
+### Swaps
+- **Lazy day, no honey butter to make:** spread the bread with plain butter or light spread and drizzle honey straight over the chicken. Same flavour, no bowl.
+- **Lazy day, even quicker:** a drizzle of shop-bought hot honey, honey mustard or BBQ sauce over the chicken, or a squeeze of sriracha with a drizzle of honey.
+- **Instead of the butter, mix the honey with:** light mayo (honey mayo; spreads easily and toasts golden), light cream cheese (thicker and creamy), or 0% Greek yoghurt (lowest calorie and adds protein, but tangy). Use the same amount as the butter.
+- Spread yoghurt or cream cheese on the inside of the bread only; for toasting, the outside needs butter, spread or mayo to crisp.
+
+### Tips
+- The plate does everything, so work in this order: onions and parsley, then raw chicken, then wash it, then cooked chicken. Raw chicken never shares the plate with anything eaten raw.
+- Thighs are forgiving; a few extra minutes won't dry them out the way breast does.
+- Lighter version (for fat loss): light spread, about 1 tbsp honey butter per sandwich (you'll have some left over) and thin-cut provolone. Pile spinach or rocket inside and have veg on the side to fill up.
+- Pickle the whole onion if you like, with double the vinegar and honey; it keeps 5 days and goes in other meals too.
+- About 2 thighs (180–225g raw chicken) per sandwich is the same chicken as a rice-and-two-thighs lunch. The page shows how many sandwiches your grams make and how much chicken goes in each.
+- Prep time is about 1 hour for 4 sandwiches with whole thighs, mostly air fryer batches. Strips and chicken seasoned the night before bring it to 35–40 minutes, and they matter most for bigger packs: 1.5kg is about 5 batches whole, or about 3 as strips.
+- Hands-on it's about 20–25 minutes more than a rice-and-thighs prep (onions, honey butter, assembling and wrapping), and each day takes 6–8 minutes to toast.
+
+### Storage
+- **Fridge:** wrapped, untoasted sandwiches keep 3–4 days (UK guidance for cooked chicken is 2 days, so freeze the later ones if you'd rather be safe).
+- **Freezer:** freeze wrapped sandwiches for up to 2 months. Put the wrapped sandwiches in a freezer bag, squeeze the air out and write the date on it so the bread doesn't dry out. Don't refreeze.
+- **Weekly plan:** keep 2 in the fridge for the first 2 days and freeze the rest. Each night, move one from the freezer to the fridge; it's thawed by lunch, then toast as in step 10.
+- **Don't toast before storing:** a toasted sandwich goes soggy in the fridge and dries out when toasted again.
+- Keep the pickled onions in a sealed tub in the fridge for up to 5 days, and add them after toasting so the bread stays crisp.
+- Honey butter keeps about 2 weeks in the fridge; let it soften before spreading.
 
 ---
 
