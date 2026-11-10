@@ -668,11 +668,13 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 
 ### Chicken
 - 900g boneless, skinless chicken thighs (about 8), 2 per sandwich
+- 1 tbsp oil
+
+### Spice mix
 - 1½ tsp salt
 - 1 tsp black pepper
 - 2 tsp paprika
 - 2 tsp garlic powder
-- 1 tbsp oil
 
 ### Honey butter
 - 6 tbsp light spreadable butter, softened
@@ -692,11 +694,11 @@ Each blend makes **one week's worth** (about 5 tbsp), enough for:
 - Frozen mixed veg, to serve on the side
 
 ### Method
-1. **Onions first, on the clean plate.** Cut the top off the onion, leaving the root on, then halve it from top to root and peel. Lay each half flat-side down and slice across as thinly as you can. Put the slices in a small bowl with the vinegar, honey and salt, stir and leave for at least 15–20 minutes.
+1. **Onions first, on the clean plate.** Cut the top off the onion, leaving the root on, then halve it from top to root and peel. Lay each half flat-side down and slice across as thinly as you can. Put the slices in a small bowl with {1 tbsp} vinegar, {1 tsp} honey and a pinch of salt, stir and leave for at least 15–20 minutes.
 2. **Parsley, if fresh.** Bunch the leaves tight on the plate and slice through a few times. Set aside.
-3. **Honey butter.** In a small bowl, mash the softened butter with a fork, add the honey a spoonful at a time and keep mashing until smooth. Stir in the parsley.
-4. **Spice mix.** In another small bowl, stir together the salt, pepper, paprika and garlic powder.
-5. **Season the chicken on the plate in batches.** For faster cooking, first cut each thigh into 3–4 strips on the plate (you slice it later anyway). Lay 3–4 thighs' worth on the plate, sprinkle with some of the spice mix and a little oil, rub in, flip and repeat, then put them straight into the air fryer basket. Take the spice mix with a clean spoon so raw chicken never touches the bowl. Or skip the plate: tip the chicken, spice mix and oil into a food bag, seal and squish for a minute. The bag can sit in the fridge overnight, so on prep day it goes straight into the air fryer.
+3. **Honey butter.** In a small bowl, mash {6 tbsp} softened butter with a fork, add {3 tbsp} honey a spoonful at a time and keep mashing until smooth. Stir in the parsley.
+4. **Spice mix.** In another small bowl, stir together {1½ tsp} salt, {1 tsp} black pepper, {2 tsp} paprika and {2 tsp} garlic powder. Share it evenly between the batches of chicken.
+5. **Season the chicken on the plate in batches.** For faster cooking, first cut each thigh into 3–4 strips on the plate (you slice it later anyway). Lay 3–4 thighs' worth on the plate, sprinkle with some of the spice mix and a little of the {1 tbsp} oil, rub in, flip and repeat, then put them straight into the air fryer basket. Take the spice mix with a clean spoon so raw chicken never touches the bowl. Or skip the plate: tip the chicken, spice mix and oil into a food bag, seal and squish for a minute. The bag can sit in the fridge overnight, so on prep day it goes straight into the air fryer.
 6. **Air fry** at 200°C (preheated for 3 minutes) until 75°C in the thickest part, or white all the way through with clear juices. **Whole thighs:** 12–18 minutes, 3–4 at a time in a single layer, turned halfway (if they overlap, add 3–5 minutes and swap top and bottom halfway). **Strips:** 10–12 minutes, shaking the basket halfway; a loose pile is fine, so about twice as much fits per batch. While the first batch cooks, make the onions and honey butter (steps 1–3) if you haven't already.
 7. **Wash the plate** in hot soapy water. Rest the cooked chicken on it for 5 minutes, then slice. Let it cool completely before assembling.
 8. **Assemble:** spread honey butter on the inside of both slices of bread, then add the provolone and sliced chicken. Don't toast yet.

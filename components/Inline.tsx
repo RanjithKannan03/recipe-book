@@ -1,6 +1,6 @@
-/** Renders the small amount of inline Markdown the recipes use: **bold** and *italic*. */
+/** Renders the small amount of inline Markdown the recipes use: **bold**, *italic* and {scaled amounts}. */
 export function Inline({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\{[^}]+\})/g);
   return (
     <>
       {parts.map((p, i) => {
@@ -9,6 +9,13 @@ export function Inline({ text }: { text: string }) {
             <strong key={i} className="font-semibold text-ink">
               {p.slice(2, -2)}
             </strong>
+          );
+        }
+        if (p.length > 2 && p.startsWith("{") && p.endsWith("}")) {
+          return (
+            <span key={i} className="rounded-md bg-accent-soft px-1.5 py-0.5 font-semibold text-accent tabular-nums">
+              {p.slice(1, -1)}
+            </span>
           );
         }
         if (p.length > 2 && p.startsWith("*") && p.endsWith("*")) {

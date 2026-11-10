@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Recipe } from "@/lib/parse";
-import { formatFactor, scaleIngredient, servings } from "@/lib/scale";
+import { formatFactor, scaleIngredient, scaleStep, servings } from "@/lib/scale";
 import { AddToListButton } from "./AddToListButton";
 import { GramsControl } from "./GramsControl";
 import { IngredientList } from "./IngredientList";
@@ -128,7 +128,7 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
                   {i + 1}
                 </span>
                 <p className="pt-1.5 leading-relaxed lg:text-lg">
-                  <Inline text={step} />
+                  <Inline text={scaleStep(step, factor)} />
                 </p>
               </li>
             ))}

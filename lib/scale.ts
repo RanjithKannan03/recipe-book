@@ -2,7 +2,7 @@
 // kitchen fractions for spoons/cups, round grams, whole breads, and singular/plural nouns.
 
 import type { Blend, Recipe, Usage } from "./parse";
-import { CITRUS, parseNumber, type Ingredient, type Unit } from "./quantity";
+import { CITRUS, parseIngredient, parseNumber, type Ingredient, type Unit } from "./quantity";
 
 export type ScaledIngredient = {
   /** The amount, e.g. "1½ tbsp" or "3"; empty when the line has no quantity. */
@@ -209,4 +209,17 @@ export function servings(recipe: Recipe, grams: number) {
     }
   }
   return { count, label, each, pieces };
+}
+
+/**
+ * Scales the amounts marked with braces in a method step, e.g. "stir together {1½ tsp} salt" at ×2 →
+ * "stir together {1 tbsp} salt". The braces stay so the page can highlight the amount.
+ */
+export function scaleStep(step: string, factor: number): string {
+  return step.replace(/\{([^}]+)\}/g, (whole, qty: string) => {
+    const ing = parseIngredient(qty.trim());
+    if (ing.kind === "text") return whole;
+    const s = scaleIngredient(ing, factor);
+    return `{${[s.amount, s.text].filter(Boolean).join(" ")}}`;
+  });
 }
