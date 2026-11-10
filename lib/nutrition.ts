@@ -15,6 +15,7 @@ export const NUTRIENTS = [
   "carbs",
   "fibre",
   "sugars",
+  "freeSugars",
   "satFat",
   "salt",
   "potassium",
@@ -29,6 +30,8 @@ export type Nutrients = Record<Nutrient, number>;
 export const MICROS: { key: Nutrient; label: string; unit: "g" | "mg"; ri: number }[] = [
   { key: "fibre", label: "Fibre", unit: "g", ri: 30 },
   { key: "sugars", label: "Sugars", unit: "g", ri: 90 },
+  // NHS maximum for added sugars, honey, syrups and juice; the natural sugar in milk, veg and fruit doesn't count.
+  { key: "freeSugars", label: "of which free sugars", unit: "g", ri: 30 },
   { key: "satFat", label: "Saturated fat", unit: "g", ri: 20 },
   { key: "salt", label: "Salt", unit: "g", ri: 6 },
   { key: "potassium", label: "Potassium", unit: "mg", ri: 2000 },
@@ -64,6 +67,7 @@ const FOODS: Food[] = [
   // Sauces and condiments
   { match: /garlic dip/, per100: [700, 1, 75, 3, 0, 1, 6, 700, 30, 10, 0.2, 0], density: 0.95 },
   { match: /burger sauce/, per100: [300, 1, 28, 12, 0.3, 9, 2.5, 900, 60, 10, 0.2, 1], density: 1 },
+  { match: /light mayo/, per100: [300, 1, 30, 6, 0, 3, 2.5, 700, 20, 8, 0.2, 0], density: 1 },
   { match: /mayonnaise|\bmayo\b/, per100: [680, 1, 75, 1, 0, 1, 6, 600, 20, 8, 0.2, 0], density: 0.95 },
   { match: /sweet chilli sauce/, per100: [220, 0.5, 0.5, 53, 1, 50, 0.1, 900, 80, 10, 0.5, 5], density: 1.25 },
   { match: /buffalo sauce/, per100: [40, 0.5, 3, 3, 0.5, 1, 0.5, 2600, 100, 10, 0.5, 2], density: 1.05 },
@@ -77,6 +81,8 @@ const FOODS: Food[] = [
   { match: /pickle juice/, per100: [10, 0.3, 0, 2, 0, 1, 0, 1200, 30, 10, 0.2, 0], density: 1 },
   { match: /vinegar/, per100: [20, 0, 0, 0.9, 0, 0.4, 0, 5, 70, 7, 0.2, 0], density: 1 },
   { match: /lemon juice/, per100: [22, 0.4, 0.2, 6.9, 0.3, 2.5, 0, 1, 103, 6, 0.1, 39], density: 1.03 },
+  { match: /\blemons?\b/, per100: [22, 0.4, 0.2, 6.9, 0.3, 2.5, 0, 1, 103, 6, 0.1, 39], each: 35 },
+  { match: /mustard/, per100: [66, 4, 3.5, 5, 3, 1, 0.2, 1100, 140, 60, 1.5, 1], density: 1.05 },
   { match: /honey/, per100: [304, 0.3, 0, 82, 0.2, 82, 0, 4, 52, 6, 0.4, 0.5], density: 1.42 },
 
   // Dairy, eggs and fats
@@ -88,6 +94,7 @@ const FOODS: Food[] = [
   { match: /greek yoghurt/, per100: [97, 9, 5, 4, 0, 4, 3.3, 36, 140, 100, 0.1, 0], density: 1.05 },
   { match: /soured cream/, per100: [198, 2.4, 19, 4.6, 0, 3.5, 12, 30, 125, 100, 0.1, 1], density: 1 },
   { match: /provolone/, per100: [351, 25.6, 26.6, 2.1, 0, 0.6, 17, 876, 138, 756, 0.5, 0], each: 17 },
+  { match: /light cheese slice/, per100: [200, 20, 11, 5, 0, 5, 7, 1300, 150, 650, 0.3, 0], each: 20 },
   { match: /cheese slice/, per100: [330, 18, 26, 4, 0, 4, 16, 1400, 130, 600, 0.3, 0], each: 20 },
   { match: /\beggs?\b/, per100: [143, 12.6, 9.5, 0.7, 0, 0.4, 3.1, 142, 138, 56, 1.8, 0], each: 50 },
   { match: /spray/, per100: OIL, each: 0.3 },
@@ -107,11 +114,14 @@ const FOODS: Food[] = [
 
   // Veg and herbs
   { match: /fresh parsley/, per100: [36, 3, 0.8, 6, 3.3, 0.9, 0.1, 56, 554, 138, 6.2, 133], density: 0.27 },
-  { match: /pickled cucumbers|gherkins/, per100: [12, 0.5, 0.2, 2.4, 1.2, 1, 0, 800, 23, 40, 0.3, 1], density: 0.6 },
+  { match: /pickled cucumbers|gherkin/, per100: [12, 0.5, 0.2, 2.4, 1.2, 1, 0, 800, 23, 40, 0.3, 1], density: 0.6, each: 30 },
   { match: /cucumber/, per100: [15, 0.7, 0.1, 3.6, 0.5, 1.7, 0, 2, 147, 16, 0.3, 2.8], density: 0.55 },
-  { match: /tomato/, per100: [18, 0.9, 0.2, 3.9, 1.2, 2.6, 0, 5, 237, 10, 0.3, 14], density: 0.75 },
+  { match: /tomato/, per100: [18, 0.9, 0.2, 3.9, 1.2, 2.6, 0, 5, 237, 10, 0.3, 14], density: 0.75, each: 100 },
   { match: /lettuce/, per100: [15, 1.4, 0.2, 2.9, 1.3, 0.8, 0, 28, 194, 36, 0.9, 9], density: 0.2 },
   { match: /garlic cloves?|fresh garlic|grated garlic/, per100: [149, 6.4, 0.5, 33, 2.1, 1, 0.1, 17, 401, 181, 1.7, 31], density: 0.57, each: 4 },
+
+  // Homemade peri-peri blend (Part 1): about a quarter salt and a fifth sugar by weight, the rest spices.
+  { match: /peri-peri blend/, per100: [254, 7.4, 4.6, 52, 14, 21, 0.9, 10000, 855, 171, 11.4, 1], density: 0.64 },
 
   // Spices and seasonings (dried, so "onion powder" and "garlic powder" land here, not with fresh)
   { match: /^salt\b/, per100: [0, 0, 0, 0, 0, 0, 0, 38758, 8, 24, 0.3, 0], density: 1.2 },
@@ -122,6 +132,9 @@ const FOODS: Food[] = [
   },
   { match: /red onions?|onions?/, per100: [40, 1.1, 0.1, 9.3, 1.7, 4.2, 0, 4, 146, 23, 0.2, 7.4], each: (r) => (/large/.test(r) ? 200 : 150) },
 ];
+
+/** Foods whose sugar is "free" (added, honey, syrups, juice), by their match pattern. */
+const FREE = /peri-peri blend|burger sauce|mayo|sweet chilli|buffalo|hot sauce|sriracha|ketchup|pomegranate|honey|lemon juice|pitta|tortilla|lavash|bun|sourdough|cornflakes|garlic dip/;
 
 const ML: Record<string, number> = { tsp: 5, tbsp: 15, cup: 240 };
 
@@ -161,7 +174,29 @@ export type NutritionResult = {
 
 const zero = (): Nutrients => Object.fromEntries(NUTRIENTS.map((k) => [k, 0])) as Nutrients;
 
-export function recipeNutrition(recipe: Recipe, grams_: number): NutritionResult {
+/** Whole-word match, so a "butter" swap doesn't also hit "buttermilk". */
+function wordMatch(name: string): RegExp {
+  return new RegExp(`(^|[^a-z])${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![a-z])`);
+}
+
+/** Plain-English summary of a recipe's "**Lighter:**" swaps, e.g. "honey halved, no butter". */
+export function describeLighter(recipe: Recipe): string {
+  const swaps = recipe.lighter ?? [];
+  const parts: string[] = [];
+  const replaced = new Map<string, string[]>();
+  for (const s of swaps) {
+    if (s.replaceLabel) replaced.set(s.replaceLabel, [...(replaced.get(s.replaceLabel) ?? []), s.label]);
+    else if (s.factor === 0) parts.push(`no ${s.label}`);
+    else if (s.factor === 0.5) parts.push(`half the ${s.label}`);
+    else parts.push(`${s.label} ×${s.factor}`);
+  }
+  // "0% fat Greek yoghurt instead of mayonnaise and Greek yoghurt"
+  for (const [to, from] of replaced) parts.push(`${to} instead of ${from.join(" and ")}`);
+  const text = parts.join(", ");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+export function recipeNutrition(recipe: Recipe, grams_: number, lighter = false): NutritionResult {
   const factor = grams_ / recipe.baseGrams;
   const total = zero();
   const unmatched: string[] = [];
@@ -172,8 +207,12 @@ export function recipeNutrition(recipe: Recipe, grams_: number): NutritionResult
       if (ing.kind === "text") continue;
       const rest = ing.rest.toLowerCase();
       if (/optional/.test(rest)) continue;
-      const food = FOODS.find((f) => f.match.test(rest));
-      const g = food ? grams(ing, food, factor, rest) : null;
+      const swap = lighter ? recipe.lighter?.find((s) => wordMatch(s.name).test(rest)) : undefined;
+      const original = FOODS.find((f) => f.match.test(rest));
+      const food = swap?.replace ? FOODS.find((f) => f.match.test(swap.replace!)) : original;
+      // Weigh the original ingredient (its density/count), then count it as the swapped food.
+      const raw = original ? grams(ing, original, factor, rest) : null;
+      const g = raw === null ? null : raw * (swap?.factor ?? 1);
       if (!food || g === null) {
         unmatched.push(ing.rest);
         continue;
@@ -187,6 +226,7 @@ export function recipeNutrition(recipe: Recipe, grams_: number): NutritionResult
       total.carbs += carbs * eaten;
       total.fibre += fibre * eaten;
       total.sugars += sugars * eaten;
+      if (FREE.test(food.match.source)) total.freeSugars += sugars * eaten;
       total.satFat += satFat * eaten;
       total.salt += (sodium * eaten * 2.5) / 1000;
       total.potassium += potassium * eaten;

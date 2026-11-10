@@ -83,6 +83,8 @@ const COUNT_RULES: CountRule[] = [
   { noun: /\bcheese slices?\b/, one: "cheese slice", many: "cheese slices", round: (x) => Math.max(1, Math.ceil(x - 0.05)) },
   { noun: /\bslices?\b/, one: "slice", many: "slices", round: pairs },
   { noun: /\beggs?\b/, one: "egg", many: "eggs", round: whole },
+  { noun: /\btomato(es)?\b/, one: "tomato", many: "tomatoes", round: whole },
+  { noun: /\bgherkins?\b/, one: "gherkin", many: "gherkins", round: whole },
   { noun: /\bcloves?\b/, one: "clove", many: "cloves", round: whole },
   { noun: /\bsprays?\b/, one: "spray", many: "sprays", round: whole },
   { noun: /\bonions?\b/, one: "onion", many: "onions", round: half },

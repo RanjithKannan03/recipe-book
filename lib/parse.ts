@@ -30,6 +30,34 @@ function parseMakes(line: string): Makes | null {
   return { count: Number(m[1]), many, one: many.replace(/(ch|sh|x)es$/, "$1").replace(/([^s])s$/, "$1") };
 }
 
+/** One swap from a "**Lighter:** honey ×½ · butter ×0 · mayonnaise → 0% fat Greek yoghurt" line. */
+export type Swap = {
+  /** Lowercase, matched against ingredient names. */
+  name: string;
+  factor?: number;
+  replace?: string;
+  /** As written, for display. */
+  label: string;
+  replaceLabel?: string;
+};
+
+function parseLighter(line: string): Swap[] | null {
+  const m = line.match(/^\*\*Lighter:\*\*\s*(.*)$/);
+  if (!m) return null;
+  return m[1].split(/\s*·\s*/).flatMap((part): Swap[] => {
+    const arrow = part.match(/^(.+?)\s*→\s*(.+)$/);
+    if (arrow) {
+      const [from, to] = [arrow[1].trim(), arrow[2].trim()];
+      return [{ name: from.toLowerCase(), label: from, replace: to.toLowerCase(), replaceLabel: to }];
+    }
+    const times = part.match(/^(.+?)\s*×\s*(\S+)$/);
+    if (times && !Number.isNaN(parseNumber(times[2]))) {
+      return [{ name: times[1].trim().toLowerCase(), label: times[1].trim(), factor: parseNumber(times[2]) }];
+    }
+    throw new Error(`Can't read the Lighter swap "${part}" (use "honey ×½" or "mayonnaise → light mayo").`);
+  });
+}
+
 export type Recipe = {
   slug: string;
   number: number;
@@ -37,6 +65,8 @@ export type Recipe = {
   tagline?: string;
   airFryer?: AirFryer;
   makes?: Makes;
+  /** Healthier swaps for the nutrition card's "Lighter" view. */
+  lighter?: Swap[];
   baseGrams: number;
   groups: Group[];
   steps: string[];
@@ -237,11 +267,14 @@ export function getCookbook(): Cookbook {
     const italic = trimmed.match(/^\*([^*].*)\*$/);
     const air = parseAirFryer(trimmed);
     const makes = parseMakes(trimmed);
+    const lighter = parseLighter(trimmed);
 
     if (air && !recipe.airFryer) {
       recipe.airFryer = air;
     } else if (makes && !recipe.makes) {
       recipe.makes = makes;
+    } else if (lighter && !recipe.lighter) {
+      recipe.lighter = lighter;
     } else if (bullet && tips) {
       tips.items.push(bullet[1]);
     } else if (bullet && group) {

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Recipe } from "@/lib/parse";
-import { MICROS, divide, recipeNutrition, servingSplit, type Nutrients } from "@/lib/nutrition";
+import { MICROS, describeLighter, divide, recipeNutrition, servingSplit, type Nutrients } from "@/lib/nutrition";
 import { servings } from "@/lib/scale";
 
 function fmt(v: number, unit: "g" | "mg" | "kcal", key?: string): string {
@@ -18,13 +18,49 @@ const MACROS: { key: keyof Nutrients; label: string; unit: "g" | "kcal" }[] = [
   { key: "fat", label: "Fat", unit: "g" },
 ];
 
+function Toggle<T extends string>({
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: T;
+  onChange: (v: T) => void;
+  options: readonly (readonly [T, string])[];
+}) {
+  return (
+    <div role="radiogroup" aria-label={label} className="flex rounded-full border border-line bg-surface-2 p-1">
+      {options.map(([v, text]) => (
+        <button
+          key={v}
+          type="button"
+          role="radio"
+          aria-checked={value === v}
+          onClick={() => onChange(v)}
+          className={`h-9 rounded-full px-3.5 text-sm font-medium transition ${
+            value === v ? "bg-surface text-ink shadow-card" : "text-muted hover:text-ink"
+          }`}
+        >
+          {text}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /** Estimated macros and micros for the recipe at the chosen weight, per serving or for the whole batch. */
 export function NutritionCard({ recipe, grams }: { recipe: Recipe; grams: number }) {
   const [view, setView] = useState<"serving" | "batch">("serving");
-  const { total, unmatched } = recipeNutrition(recipe, grams);
+  const [version, setVersion] = useState<"original" | "lighter">("original");
+  const lighter = version === "lighter" && !!recipe.lighter;
+  const { total, unmatched } = recipeNutrition(recipe, grams, lighter);
   const serve = servings(recipe, grams);
   const split = servingSplit(grams, serve?.count, recipe.makes?.one);
-  const shown = view === "serving" ? divide(total, split.count) : total;
+  const by = view === "serving" ? split.count : 1;
+  const shown = divide(total, by);
+  // In the lighter view, show how much each macro drops compared with the original recipe.
+  const before = lighter ? divide(recipeNutrition(recipe, grams).total, by) : null;
   const servingNote =
     view === "serving"
       ? `Estimate ${split.label}`
@@ -37,29 +73,35 @@ export function NutritionCard({ recipe, grams }: { recipe: Recipe; grams: number
           <span aria-hidden>📊</span>
           Nutrition
         </h2>
-        <div role="radiogroup" aria-label="Show nutrition for" className="flex rounded-full border border-line bg-surface-2 p-1">
-          {(
-            [
+        <div className="flex flex-wrap gap-2">
+          {recipe.lighter && (
+            <Toggle
+              label="Recipe version"
+              value={version}
+              onChange={setVersion}
+              options={[
+                ["original", "Original"],
+                ["lighter", "Lighter"],
+              ]}
+            />
+          )}
+          <Toggle
+            label="Show nutrition for"
+            value={view}
+            onChange={setView}
+            options={[
               ["serving", serve && recipe.makes ? `Per ${recipe.makes.one}` : "Per portion"],
               ["batch", "Whole batch"],
-            ] as const
-          ).map(([v, label]) => (
-            <button
-              key={v}
-              type="button"
-              role="radio"
-              aria-checked={view === v}
-              onClick={() => setView(v)}
-              className={`h-9 rounded-full px-3.5 text-sm font-medium transition ${
-                view === v ? "bg-surface text-ink shadow-card" : "text-muted hover:text-ink"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+            ]}
+          />
         </div>
       </div>
       <p className="mt-1 text-sm text-muted">{servingNote}</p>
+      {lighter && (
+        <p className="mt-2 rounded-2xl bg-herb-soft px-4 py-2 text-sm text-herb">
+          <span className="font-semibold">Lighter:</span> {describeLighter(recipe)}. See the Healthier tips below.
+        </p>
+      )}
 
       <dl className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {MACROS.map((m) => (
@@ -70,6 +112,12 @@ export function NutritionCard({ recipe, grams }: { recipe: Recipe; grams: number
             >
               {fmt(shown[m.key], m.unit)}
               <span className="ml-0.5 text-sm font-medium text-muted">{m.unit === "kcal" ? "" : "g"}</span>
+              {before && Math.round(before[m.key] - shown[m.key]) > 0 && (
+                <span className="block text-xs font-medium text-herb">
+                  −{fmt(before[m.key] - shown[m.key], m.unit)}
+                  {m.unit === "kcal" ? " kcal" : "g"}
+                </span>
+              )}
             </dd>
           </div>
         ))}
